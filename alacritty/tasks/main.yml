@@ -1,0 +1,8 @@
+- name: check if alacritty is installed
+  stat:
+    path: "{{ ansible_env.HOME }}/.cargo/bin/alacritty"
+  register: alacritty_stats
+
+- name: install alacritty with cargo
+  shell: cargo install alacritty
+  when: alacritty_stats.stat.exists == False

@@ -1,0 +1,4 @@
+- name: install openjdk {{ java_version }} with homebrew
+  homebrew:
+    name: openjdk@{{ java_version }}
+    state: present

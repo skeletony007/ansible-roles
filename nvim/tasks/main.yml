@@ -1,0 +1,20 @@
+- import_tasks: osx.yml
+  when: ansible_os_family == "Darwin" and not from_source
+
+- name: check if the neovim directory exists
+  stat:
+    path: "{{ ansible_env.HOME }}/neovim"
+  register: neovim_stats
+  when: from_source
+
+- name: git clone neovim
+  ansible.builtin.git:
+    repo: "https://github.com/neovim/neovim.git"
+    dest: "~/neovim"
+    version: "stable"
+  when: from_source and neovim_stats.stat.exists == False
+
+- name: build neovim
+  shell: rm -rf ~/neovim/build
+  shell: cd ~/neovim && make CMAKE_BUILD_TYPE=Release && make install
+  when: from_source and neovim_stats.stat.exists == False

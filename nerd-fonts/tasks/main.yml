@@ -1,0 +1,12 @@
+- import_tasks: osx.yml
+  when: ansible_os_family == 'Darwin'
+# sets fonts_dir
+
+- name: check if ubuntu mono nerd font is already installed
+  stat:
+    path: "{{ fonts_dir }}/UbuntuMonoNerdFontMono-Regular.ttf"
+  register: nerd_fonts_stats
+
+- name: install ubuntu mono nerd font
+  shell: curl -L https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ version }}/patched-fonts/UbuntuMono/Regular/UbuntuMonoNerdFontMono-Regular.ttf > {{ fonts_dir }}/UbuntuMonoNerdFontMono-Regular.ttf
+  when: not nerd_fonts_stats.stat.exists

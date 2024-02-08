@@ -1,0 +1,3 @@
+- name: install rust with rustup
+  shell: echo 'y' | curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  when: not command -v rustup
