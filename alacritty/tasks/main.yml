@@ -5,4 +5,4 @@
 
 - name: install alacritty with cargo
   shell: cargo install alacritty
-  when: alacritty_stats.stat.exists == False
+  when: alacritty_stats.stat.exists == false

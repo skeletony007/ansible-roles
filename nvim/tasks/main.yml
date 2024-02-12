@@ -12,9 +12,9 @@
     repo: "https://github.com/neovim/neovim.git"
     dest: "~/neovim"
     version: "stable"
-  when: from_source and neovim_stats.stat.exists == False
+  when: from_source and neovim_stats.stat.exists == false
 
 - name: build neovim
   shell: rm -rf ~/neovim/build
   shell: cd ~/neovim && make CMAKE_BUILD_TYPE=Release && make install
-  when: from_source and neovim_stats.stat.exists == False
+  when: from_source and neovim_stats.stat.exists == false

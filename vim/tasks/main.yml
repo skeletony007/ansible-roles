@@ -10,4 +10,4 @@
   ansible.builtin.git:
     repo: 'https://github.com/morhetz/gruvbox.git'
     dest: "~/.vim/pack/default/start/gruvbox"
-  when: gruvbox_stats.stat.exists == False
+  when: gruvbox_stats.stat.exists == false
