@@ -1,6 +1,6 @@
 - import_tasks: osx.yml
   when: ansible_os_family == 'Darwin'
-# sets fonts_dir
+    # sets fonts_dir
 
 - name: check if ubuntu mono nerd font is already installed
   stat:
