@@ -1,0 +1,13 @@
+- import_tasks: osx.yml
+  when: ansible_os_family == "Darwin"
+
+- name: check if gruvbox directory exists
+  stat:
+    path: "{{ ansible_env.HOME }}/.vim/pack/default/start/gruvbox"
+  register: gruvbox_stats
+
+- name: install gruvbox
+  ansible.builtin.git:
+    repo: 'https://github.com/morhetz/gruvbox.git'
+    dest: "~/.vim/pack/default/start/gruvbox"
+  when: gruvbox_stats.stat.exists == False
