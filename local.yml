@@ -12,3 +12,4 @@
     - {role: nvim, tags: ['nvim', 'tty']}
     - {role: alacritty, tags: ['alacritty', 'tty']}
     - {role: nerd-fonts, tags: ['nerd-fonts', 'tty']}
+    - {role: gnupg, tags: ['gnupg', 'security']}
