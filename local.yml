@@ -1,16 +1,17 @@
 - hosts: localhost
   roles:
     # Tag each role so that we can select individual roles to run with ansible-playbook --tags
-    - {role: package-manager, tags: ['package-manager', 'bootstrap']}
-    - {role: git, tags: ['git']}
-    - {role: zsh, tags: ['zsh', 'bootstrap']}
-    - {role: rust, tags: ['rust', 'lang']}
-    - {role: java, tags: ['java', 'lang']}
-    - {role: oh-my-zsh, tags: ['oh-my-zsh', 'tty']}
-    - {role: tmux, tags: ['tmux', 'tty']}
-    - {role: fzf, tags: ['fzf', 'tty']}
-    - {role: nvim, tags: ['nvim', 'tty']}
-    - {role: alacritty, tags: ['alacritty', 'tty']}
-    - {role: nerd-fonts, tags: ['nerd-fonts', 'tty']}
-    - {role: gnupg, tags: ['gnupg', 'security']}
-    - {role: pass, tags: ['pass', 'security']}
+    - {role: package-manager, tags: package-manager}
+    - {role: git, tags: git}
+    - {role: zsh, tags: zsh}
+    - {role: rust, tags: rust}
+    - {role: java, tags: java}
+    - {role: oh-my-zsh, tags: oh-my-zsh}
+    - {role: tmux, tags: tmux}
+    - {role: fzf, tags: fzf}
+    - {role: nvim, tags: nvim}
+    - {role: vim, tags: vim}
+    - {role: alacritty, tags: alacritty}
+    - {role: nerd-fonts, tags: nerd-fonts}
+    - {role: gnupg, tags: gnupg}
+    - {role: pass, tags: pass}
