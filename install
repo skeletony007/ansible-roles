@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-ansible_roles=''
+playbook='- hosts: localhost
+  roles:'
 
-while IFS= read -r role;
-do
-    ansible_roles="$ansible_roles --tags '$role'"
+while IFS= read -r role; do
+    playbook+="
+    - {role: '$role'}"
 done < "$1"
 
-eval "ansible-playbook local.yml --ask-become-pass$ansible_roles"
+ansible-playbook <(printf '%s' "$playbook") --ask-become-pass
