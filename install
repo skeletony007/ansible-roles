@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
-playbook='- hosts: localhost
-  roles:'
+case $2 in
+    '') hosts=local ;;
+    *) hosts=$2 ;;
+esac
+
+playbook="- hosts: $hosts
+  roles:"
 
 while IFS= read -r role; do
     playbook+="
     - {role: '$role'}"
 done < "$1"
 
-ansible-playbook <(printf '%s' "$playbook") --ask-become-pass
+ansible-playbook -i hosts <(printf '%s' "$playbook") --ask-become-pass
