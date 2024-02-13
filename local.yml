@@ -3,6 +3,7 @@
     # Tag each role so that we can select individual roles to run with ansible-playbook --tags
     - {role: package-manager, tags: package-manager}
     - {role: git, tags: git}
+    - {role: git-credential-manager, tags: git-credential-manager}
     - {role: zsh, tags: zsh}
     - {role: rust, tags: rust}
     - {role: java, tags: java}
