@@ -1,2 +1,2 @@
 - name: install neovim with homebrew
-  homebrew: name=name state=present
+  homebrew: name=neovim state=present
