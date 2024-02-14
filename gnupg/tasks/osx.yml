@@ -2,3 +2,8 @@
   homebrew:
     name: gnupg
     state: present
+
+- name: install pinentry-mac with homebrew
+  homebrew:
+    name: pinentry-mac
+    state: present
