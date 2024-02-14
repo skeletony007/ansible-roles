@@ -1,5 +1,7 @@
 - name: install firefox with homebrew
-  homebrew: name=firefox state=present
+  homebrew_cask:
+    name: firefox
+    state: present
 
 - name: set firefox profile dir for macos
   set_fact:

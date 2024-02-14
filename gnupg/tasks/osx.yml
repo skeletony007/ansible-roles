@@ -1,2 +1,4 @@
 - name: install gnupg with homebrew
-  homebrew: name=gnupg state=present
+  homebrew:
+    name: gnupg
+    state: present

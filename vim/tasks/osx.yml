@@ -1,2 +1,4 @@
 - name: install vim with homebrew
-  homebrew: name=vim state=present
+  homebrew:
+    name: vim
+    state: present
