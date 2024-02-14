@@ -1,0 +1,33 @@
+name: Ansible Playbook Syntax Check
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'osx'
+      - 'windows'
+      - 'arch'
+      - 'debian'
+      - 'README*'
+      - '.github/**'
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - 'osx'
+      - 'windows'
+      - 'arch'
+      - 'debian'
+      - 'README*'
+      - '.github/**'
+jobs:
+  run-playbooks:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@master
+      - name: Run ansible-playbook syntax check
+        shell: bash 
+        run: |
+          roles=$(find . -maxdepth 1 -type d -exec test -d '{}/tasks' \; -exec basename '{}' \;)
+          install=$(sed 's/^ansible-playbook.*$/ansible-playbook -i hosts <(printf '\''%s'\'' "$playbook") --syntax-check/' install)
+          bash <(printf '%s' "$install") <(printf '%s' "$roles")
