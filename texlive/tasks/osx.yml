@@ -1,0 +1,4 @@
+- name: install texlive with homebrew
+  homebrew:
+    name: texlive
+    state: present

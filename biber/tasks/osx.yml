@@ -1,0 +1,4 @@
+- name: install biber with homebrew
+  homebrew:
+    name: biber
+    state: present
