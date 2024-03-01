@@ -1,0 +1,4 @@
+- name: install dotnet with homebrew
+  homebrew:
+    name: dotnet
+    state: present

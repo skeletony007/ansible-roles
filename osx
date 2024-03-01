@@ -4,6 +4,7 @@ git-credential-manager
 zsh
 rust
 java
+dotnet
 oh-my-zsh
 tmux
 fzf
