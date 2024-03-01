@@ -1,0 +1,22 @@
+- name: check if the autokbisw binary exists
+  stat:
+    path: "/usr/local/bin/autokbisw"
+  register: autokbisw_stats
+
+- name: install autokbisw binary
+  become: true
+  shell: mkdir -p /usr/local/bin && cd /usr/local/bin && curl https://github.com/ohueter/autokbisw/releases/download/{{ version }}/autokbisw-{{ version }}.ventura.tar.gz | sudo tar -zxvf -
+  when: autokbisw_stats.stat.exists == false
+
+- name: check if the autokbisw service exists
+  stat:
+    path: "~/Library/LaunchAgents/eu.byjean.autokbisw.plist"
+  register: autokbisw_service_stats
+
+- name: install autokbisw service
+  shell: curl https://raw.githubusercontent.com/skeletony007/jeantil_autokbisw/master/eu.byjean.autokbisw.plist -o ~/Library/LaunchAgents/eu.byjean.autokbisw.plist && launchctl load ~/Library/LaunchAgents/eu.byjean.autokbisw.plist && launchctl load ~/Library/LaunchAgents/eu.byjean.autokbisw.plist
+  when: autokbisw_service_stats.stat.exists == false
+
+- name: start autokbisw service
+  shell: launchctl start eu.byjean.autokbisw
+  when: autokbisw_service_stats.stat.exists == false
