@@ -5,6 +5,7 @@ zsh
 rust
 java
 dotnet
+node
 oh-my-zsh
 tmux
 fzf
