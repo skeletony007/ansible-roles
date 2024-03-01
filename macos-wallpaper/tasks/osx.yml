@@ -1,0 +1,4 @@
+- name: install macos-wallpaper with homebrew
+  homebrew:
+    name: wallpaper
+    state: present
