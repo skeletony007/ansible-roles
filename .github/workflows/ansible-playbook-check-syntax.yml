@@ -4,29 +4,33 @@ on:
     branches:
       - master
     paths-ignore:
-      - 'osx'
-      - 'windows'
-      - 'arch'
-      - 'debian'
-      - 'README*'
-      - '.github/**'
+      - "osx"
+      - "windows"
+      - "arch"
+      - "debian"
+      - "README*"
+      - ".github/**"
+      - ".editorconfig"
+      - ".prettierrc.toml"
   pull_request:
     branches:
       - master
     paths-ignore:
-      - 'osx'
-      - 'windows'
-      - 'arch'
-      - 'debian'
-      - 'README*'
-      - '.github/**'
+      - "osx"
+      - "windows"
+      - "arch"
+      - "debian"
+      - "README*"
+      - ".github/**"
+      - ".editorconfig"
+      - ".prettierrc.toml"
 jobs:
   run-playbooks:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - uses: actions/checkout@master
       - name: Run ansible-playbook syntax check
-        shell: bash 
+        shell: bash
         run: |
           roles=$(find . -maxdepth 1 -type d -exec test -d '{}/tasks' \; -exec basename '{}' \;)
           install=$(sed 's/^ansible-playbook.*$/ansible-playbook -i hosts <(printf '\''%s'\'' "$playbook") --syntax-check/' install)
