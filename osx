@@ -9,6 +9,7 @@ node
 oh-my-zsh
 tmux
 fzf
+cmake
 nvim
 alacritty
 nerd-fonts
