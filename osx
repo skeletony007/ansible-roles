@@ -10,6 +10,7 @@ oh-my-zsh
 tmux
 fzf
 cmake
+ninja
 nvim
 alacritty
 nerd-fonts

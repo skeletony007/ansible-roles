@@ -1,0 +1,4 @@
+- name: install ninja with homebrew
+  homebrew:
+    name: ninja
+    state: present
