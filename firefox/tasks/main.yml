@@ -1,3 +1,5 @@
+- import_tasks: arch.yml
+  when: ansible_os_family == "Archlinux"
 - import_tasks: osx.yml
   when: ansible_os_family == "Darwin"
     # sets firefox_profile_dir

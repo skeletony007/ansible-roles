@@ -1,0 +1,4 @@
+- name: install git with pacman
+  pacman:
+    name: git
+    state: present

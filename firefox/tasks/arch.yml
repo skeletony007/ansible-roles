@@ -1,0 +1,8 @@
+- name: install firefox with pacman
+  pacman:
+    name: firefox
+    state: present
+
+- name: set firefox profile dir for arch
+  set_fact:
+    firefox_profile_dir: "{{ ansible_env.HOME }}/.mozilla/firefox"

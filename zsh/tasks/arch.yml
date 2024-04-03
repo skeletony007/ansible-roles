@@ -1,0 +1,4 @@
+- name: install zsh with pacman
+  pacman:
+    name: zsh
+    state: present
