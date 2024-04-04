@@ -8,9 +8,15 @@ esac
 playbook="- hosts: $hosts
   roles:"
 
-while IFS= read -r role; do
+while IFS= read -r role
+do
+    if ! [[ -d $role ]]
+    then
+        printf 'ansible-roles: %s is not a directory' "$role"
+        continue
+    fi
     playbook+="
     - {role: '$role'}"
-done < "$1"
+done < $1
 
 ansible-playbook -i hosts <(printf '%s' "$playbook") --ask-become-pass
