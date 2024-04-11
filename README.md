@@ -15,7 +15,15 @@ git-credential-manager
 zsh
 ```
 
-Any role that does not exist will be cause a warning and be skipped.
+Any role that does not exist will be cause a warning and be skipped. All roles
+can be listed with
+
+```
+find . \
+    -maxdepth 1 \
+    -type d \
+    -exec test -f '{}/tasks/main.yml' \; -exec basename '{}' \; \
+```
 
 ### Features
 
