@@ -1,0 +1,15 @@
+- name: check if the neovim directory exists
+  stat:
+    path: "{{ ansible_env.HOME }}/neovim"
+  register: neovim_stats
+
+- name: git clone neovim
+  ansible.builtin.git:
+    repo: "https://github.com/neovim/neovim.git"
+    dest: "{{ ansible_env.HOME }}/neovim"
+    version: "stable"
+  when: neovim_stats.stat.exists == false
+
+- name: build neovim
+  shell: cd '{{ ansible_env.HOME }}/neovim' && make CMAKE_BUILD_TYPE=Release && make install
+  when: neovim_stats.stat.exists == false
