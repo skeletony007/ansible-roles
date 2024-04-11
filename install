@@ -12,7 +12,7 @@ while IFS= read -r role
 do
     if ! [[ -d $role ]]
     then
-        printf 'ansible-roles: %s is not a directory' "$role"
+        printf 'ansible-roles: %s is not a directory\n' "$role"
         continue
     fi
     playbook+="
