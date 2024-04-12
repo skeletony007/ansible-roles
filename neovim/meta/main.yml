@@ -1,0 +1,6 @@
+dependencies:
+  - role: git
+  - role: cmake
+
+  - role: ninja
+    when: use_ninja
