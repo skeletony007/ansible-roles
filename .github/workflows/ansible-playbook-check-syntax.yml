@@ -29,5 +29,5 @@ jobs:
               -type d \
               -exec test -f '{}/tasks/main.yml' \; -exec basename '{}' \; \
           )
-          install=$(sed 's/^ansible-playbook.*$/ansible-playbook -i hosts <(printf '\''%s'\'' "$playbook") --syntax-check/' install)
+          install=$(sed 's/\(^ansible-playbook.*$\)/\1 --syntax-check/' install)
           bash <(printf '%s' "$install") <(printf '%s' "$roles")
