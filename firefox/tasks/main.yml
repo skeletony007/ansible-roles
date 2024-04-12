@@ -1,7 +1,8 @@
 - import_tasks: arch.yml
   when: ansible_os_family == "Archlinux"
 - import_tasks: osx.yml
-  when: ansible_os_family == "Darwin"
+  when:
+    ansible_os_family == "Darwin"
     # sets firefox_profile_dir
 
 - name: check if the firefox profile directory exists
@@ -17,6 +18,6 @@
     dest: ~/personal/firefox-push-pull-service
   when: firefox_profile_stats.matched == 0
 
-- name:  create profile using firefox-push-pull-service
+- name: create profile using firefox-push-pull-service
   shell: cd ~/personal/firefox-push-pull-service && ./create
   when: firefox_profile_stats.matched == 0

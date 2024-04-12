@@ -1,6 +1,6 @@
 - name: "check if rust is installed"
   stat:
-    path: '{{ ansible_env.HOME }}/.cargo/bin/rustc'
+    path: "{{ ansible_env.HOME }}/.cargo/bin/rustc"
   register: rust_stats
 
 - name: install rust with rustup

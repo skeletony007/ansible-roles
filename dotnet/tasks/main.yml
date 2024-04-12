@@ -1,6 +1,6 @@
 - name: "check if dotnet is installed"
   stat:
-    path: '{{ ansible_env.HOME }}/.dotnet/dotnet'
+    path: "{{ ansible_env.HOME }}/.dotnet/dotnet"
   register: dotnet_stats
 
 ##
@@ -13,4 +13,3 @@
     echo "$dotnet_install_script" | bash -s -- --channel LTS
     echo "$dotnet_install_script" | bash -s -- --channel 7.0 --runtime dotnet ## git-credential-manager requires dotnet 7.0
   when: dotnet_stats.stat.exists == false
-
