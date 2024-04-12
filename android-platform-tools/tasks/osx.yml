@@ -1,4 +1,0 @@
-- name: install android-platform-tools with homebrew
-  homebrew_cask:
-    name: android-platform-tools
-    state: present
