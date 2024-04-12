@@ -1,5 +1,9 @@
-- import_tasks: arch.yml
-  when: ansible_os_family == "Archlinux"
+- name: "check if git-credential-manager is installed"
+  stat:
+    path: "{{ ansible_env.HOME }}/.dotnet/tools/git-credential-manager"
+  register: gcm_stats
 
-- import_tasks: osx.yml
-  when: ansible_os_family == "Darwin"
+## requires dotnet 7.0
+- name: install git-credential-manager as dotnet tool
+  shell: "dotnet tool install -g git-credential-manager"
+  when: gcm_stats.stat.exists == false

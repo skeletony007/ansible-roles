@@ -1,4 +1,0 @@
-- name: install git-credential-manager with pacman
-  pacman:
-    name: git-credential-manager
-    state: present

@@ -1,2 +1,16 @@
-- import_tasks: osx.yml
-  when: ansible_os_family == "Darwin"
+- name: "check if dotnet is installed"
+  stat:
+    path: '{{ ansible_env.HOME }}/.dotnet/dotnet'
+  register: dotnet_stats
+
+##
+# see
+# - https://github.com/dotnet/install-scripts
+# - https://dotnet.microsoft.com/en-us/download/dotnet/scripts
+- name: install dotnet with dotnet-install.sh
+  shell: |
+    dotnet_install_script=$(curl --proto '=https' -sSf https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh)
+    echo "$dotnet_install_script" | bash -s -- --channel LTS
+    echo "$dotnet_install_script" | bash -s -- --channel 7.0 --runtime dotnet ## git-credential-manager requires dotnet 7.0
+  when: dotnet_stats.stat.exists == false
+
