@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-playbook="- hosts: localhost
-  roles:"
+playbook='---
+- hosts: localhost
+  roles:'
 
 while IFS= read -r role
 do
