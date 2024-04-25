@@ -1,0 +1,4 @@
+- name: arch | Install tmux with pacman
+  pacman:
+    name: tmux
+    state: present

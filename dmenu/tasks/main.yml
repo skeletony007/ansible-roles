@@ -1,0 +1,4 @@
+- name: Install dmenu with pacman
+  pacman:
+    name: dmenu
+    state: present

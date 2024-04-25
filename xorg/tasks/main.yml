@@ -1,0 +1,19 @@
+- name: Install xorg-server with pacman
+  pacman:
+    name: xorg-server
+    state: present
+
+- name: Install xorg-xinit with pacman
+  pacman:
+    name: xorg-xinit
+    state: present
+
+- name: Install startx with pacman
+  pacman:
+    name: startx
+    state: present
+
+- name: Install xorg-xrandr with pacman
+  pacman:
+    name: xorg-xrandr
+    state: present

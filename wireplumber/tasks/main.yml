@@ -1,0 +1,4 @@
+- name: Install wireplumber with pacman
+  pacman:
+    name: wireplumber
+    state: present

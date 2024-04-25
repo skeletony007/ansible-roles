@@ -1,0 +1,4 @@
+- name: arch | Install vim with pacman
+  pacman:
+    name: vim
+    state: present

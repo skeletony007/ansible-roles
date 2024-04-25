@@ -1,0 +1,9 @@
+- name: Install i3-wm with pacman
+  pacman:
+    name: i3-wm
+    state: present
+
+- name: Install i3status with pacman
+  pacman:
+    name: i3status
+    state: present

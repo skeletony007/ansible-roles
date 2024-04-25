@@ -1,0 +1,14 @@
+- name: Install pipewire-jack with pacman
+  pacman:
+    name: pipewire-jack
+    state: present
+
+- name: Install pipewire-alsa with pacman
+  pacman:
+    name: pipewire-alsa
+    state: present
+
+- name: Install pipewire-pulse with pacman
+  pacman:
+    name: pipewire-pulse
+    state: present

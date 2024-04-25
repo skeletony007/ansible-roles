@@ -1,0 +1,4 @@
+- name: arch | Install fzf with pacman
+  pacman:
+    name: fzf
+    state: present
