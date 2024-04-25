@@ -4,18 +4,20 @@ on:
     branches:
       - master
     paths-ignore:
-      - "README*"
-      - ".github/**"
+      - ".ansible-lint"
       - ".editorconfig"
+      - ".github/**"
       - ".prettierrc.toml"
+      - "README*"
   pull_request:
     branches:
       - master
     paths-ignore:
-      - "README*"
-      - ".github/**"
+      - ".ansible-lint"
       - ".editorconfig"
+      - ".github/**"
       - ".prettierrc.toml"
+      - "README*"
 jobs:
   run-playbooks:
     runs-on: ubuntu-latest
