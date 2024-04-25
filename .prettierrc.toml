@@ -2,7 +2,12 @@ endOfLine = "lf"
 printWidth = 120
 quoteProps = "as-needed"
 semi = true
-tabWidth = 2
+tabWidth = 4
 useTabs = false
 bracketSpacing = true
 trailingComma = "all"
+
+[[overrides]]
+files = ["*.ts", "*.js", "*.tsx", "*.jsx", "*.json", "*.json5", "*.yml"]
+[overrides.options]
+tabWidth = 2
