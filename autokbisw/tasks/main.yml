@@ -1,2 +1,30 @@
-- import_tasks: osx.yml
-  when: ansible_os_family == "Darwin"
+- name: Check if the autokbisw binary exists
+  ansible.builtin.stat:
+    path: "/usr/local/bin/autokbisw"
+  register: autokbisw_stats
+
+- name: Install autokbisw binary
+  become: true
+  shell: |
+    set -o pipefail
+    mkdir -p /usr/local/bin \
+    && cd /usr/local/bin && \
+    curl https://github.com/ohueter/autokbisw/releases/download/{{ version }}/autokbisw-{{ version }}.ventura.tar.gz \
+    | sudo tar -zxvf -
+  when: autokbisw_stats.stat.exists == false
+
+- name: Check if the autokbisw service exists
+  ansible.builtin.stat:
+    path: "~/Library/LaunchAgents/eu.byjean.autokbisw.plist"
+  register: autokbisw_service_stats
+
+- name: Install autokbisw service
+  shell: |
+    curl https://raw.githubusercontent.com/skeletony007/jeantil_autokbisw/master/eu.byjean.autokbisw.plist -o ~/Library/LaunchAgents/eu.byjean.autokbisw.plist \
+    && launchctl load ~/Library/LaunchAgents/eu.byjean.autokbisw.plist \
+    && launchctl load ~/Library/LaunchAgents/eu.byjean.autokbisw.plist
+  when: autokbisw_service_stats.stat.exists == false
+
+- name: Start autokbisw service
+  shell: launchctl start eu.byjean.autokbisw
+  when: autokbisw_service_stats.stat.exists == false

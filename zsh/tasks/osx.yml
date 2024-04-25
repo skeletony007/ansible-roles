@@ -1,4 +1,4 @@
-- name: install zsh with homebrew
+- name: osx | Install zsh with homebrew
   homebrew:
     name: zsh
     state: present

@@ -1,4 +1,4 @@
-- name: install texlive with homebrew
+- name: osx | Install texlive with homebrew
   homebrew:
     name: texlive
     state: present

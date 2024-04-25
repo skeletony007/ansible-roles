@@ -1,23 +1,22 @@
+# sets firefox_profile_dir
 - import_tasks: arch.yml
   when: ansible_os_family == "Archlinux"
 - import_tasks: osx.yml
-  when:
-    ansible_os_family == "Darwin"
-    # sets firefox_profile_dir
+  when: ansible_os_family == "Darwin"
 
-- name: check if the firefox profile directory exists
-  find:
+- name: Check if the firefox profile directory exists
+  ansible.builtin.find:
     paths: "{{ firefox_profile_dir }}"
     file_type: directory
-    recurse: no
+    recurse: false
   register: firefox_profile_stats
 
-- name: git clone firefox-push-pull-service
+- name: Git clone firefox-push-pull-service
   git:
     repo: https://github.com/skeletony007/firefox-push-pull-service.git
     dest: ~/personal/firefox-push-pull-service
-  when: firefox_profile_stats.matched == 0
+  when: not firefox_profile_stats.matched
 
-- name: create profile using firefox-push-pull-service
+- name: Create profile using firefox-push-pull-service
   shell: cd ~/personal/firefox-push-pull-service && ./create
-  when: firefox_profile_stats.matched == 0
+  when: not firefox_profile_stats.matched

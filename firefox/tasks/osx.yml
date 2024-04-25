@@ -1,8 +1,8 @@
-- name: install firefox with homebrew
+- name: osx | Install firefox with homebrew
   homebrew_cask:
     name: firefox
     state: present
 
-- name: set firefox profile dir for macos
-  set_fact:
+- name: osx | Set firefox profile dir for macos
+  ansible.builtin.set_fact:
     firefox_profile_dir: "{{ ansible_env.HOME }}/Library/Application Support/Firefox/Profiles"

@@ -1,9 +1,9 @@
-- name: check if cmake is installed
-  stat:
+- name: osx | Check if cmake is installed
+  ansible.builtin.stat:
     path: /opt/homebrew/bin/cmake
   register: cmake_stats
 
-- name: install cmake with homebrew
+- name: osx | Install cmake with homebrew
   # TODO: fix this error and continue to use ansible homebrew module
   #
   # {"changed": false, "msg": "Warning: Treating cmake as a formula. For the cask, use homebrew/cask/cmake or specify the `--cask` flag."}

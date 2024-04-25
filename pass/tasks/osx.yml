@@ -1,9 +1,9 @@
-- name: install pass with homebrew
+- name: osx | Install pass with homebrew
   homebrew:
     name: pass
     state: present
 
-- name: install pass-otp with homebrew
+- name: osx | Install pass-otp with homebrew
   homebrew:
     name: pass-otp
     state: present

@@ -1,9 +1,9 @@
-- name: install gnupg with homebrew
+- name: osx | Install gnupg with homebrew
   homebrew:
     name: gnupg
     state: present
 
-- name: install pinentry-mac with homebrew
+- name: osx | Install pinentry-mac with homebrew
   homebrew:
     name: pinentry-mac
     state: present

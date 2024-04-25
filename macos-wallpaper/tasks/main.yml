@@ -1,2 +1,4 @@
-- import_tasks: osx.yml
-  when: ansible_os_family == "Darwin"
+- name: Install macos-wallpaper with homebrew
+  homebrew:
+    name: wallpaper
+    state: present

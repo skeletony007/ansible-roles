@@ -1,4 +1,4 @@
-- name: install openjdk {{ java_version }} with homebrew
+- name: osx | Install openjdk with homebrew (version {{ java_version }})
   homebrew:
     name: openjdk@{{ java_version }}
     state: present

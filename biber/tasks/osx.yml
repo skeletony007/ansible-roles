@@ -1,4 +1,4 @@
-- name: install biber with homebrew
+- name: osx | Install biber with homebrew
   homebrew:
     name: biber
     state: present

@@ -1,13 +1,13 @@
-- name: check if the .oh-my-zsh directory exists
-  stat:
+- name: Check if the .oh-my-zsh directory exists
+  ansible.builtin.stat:
     path: "{{ ansible_env.HOME }}/.oh-my-zsh"
   register: oh_my_stats
 
-- name: install oh-my-zsh
+- name: Install oh-my-zsh
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   when: oh_my_stats.stat.exists == false
 
-- name: install zsh-autosuggestions
+- name: Install zsh-autosuggestions
   ansible.builtin.git:
     repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"

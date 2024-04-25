@@ -4,14 +4,14 @@
 - import_tasks: osx.yml
   when: ansible_os_family == "Darwin"
 
-- name: ensure /etc/shells includes {{ lookup('pipe', 'which zsh') }}
+- name: Ensure /etc/shells includes {{ lookup('pipe', 'which zsh') }}
   become: true
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: /etc/shells
     line: "{{ lookup('pipe', 'which zsh') }}"
     state: present
 
-- name: change shell to zsh
+- name: Change shell to zsh
   become: true
   shell: chsh -s $(which zsh)
   when: lookup('pipe', 'echo $SHELL') != lookup('pipe', 'which zsh')

@@ -1,4 +1,4 @@
-- name: install vim with homebrew
+- name: osx | Install vim with homebrew
   homebrew:
     name: vim
     state: present

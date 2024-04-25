@@ -1,4 +1,4 @@
-- name: install tmux with homebrew
+- name: osx | Install tmux with homebrew
   homebrew:
     name: tmux
     state: present

@@ -1,8 +1,10 @@
-- name: "check if rust is installed"
-  stat:
+- name: Check if rust is installed
+  ansible.builtin.stat:
     path: "{{ ansible_env.HOME }}/.cargo/bin/rustc"
   register: rust_stats
 
-- name: install rust with rustup
-  shell: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y"
+- name: Install rust with rustup
+  shell: |
+    set -o pipefail
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   when: rust_stats.stat.exists == false
