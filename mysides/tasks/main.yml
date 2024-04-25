@@ -1,0 +1,4 @@
+- name: Install mysides with homebrew
+  homebrew_cask:
+    name: mysides
+    state: present
