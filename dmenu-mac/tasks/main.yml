@@ -1,0 +1,6 @@
+# skeletony007/dmenu-mac is just for osx
+
+- name: Git clone skeletony007/dmenu-mac
+  git:
+    repo: https://github.com/skeletony007/dmenu-mac
+    dest: "{{ ansible_env.HOME }}/dmenu-mac"
