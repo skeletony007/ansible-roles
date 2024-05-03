@@ -26,10 +26,13 @@ jobs:
       - name: Run ansible-playbook syntax check
         shell: bash
         run: |
-          roles=$(find . \
+          roles=$(
+          find . \
+              -mindepth 1 \
               -maxdepth 1 \
               -type d \
-              -exec test -f '{}/tasks/main.yml' \; -exec basename '{}' \; \
+              -exec test -f '{}/tasks/main.yml' \; \
+              -exec basename '{}' \;
           )
           install=$(sed 's/\(^ansible-playbook.*$\)/\1 --syntax-check/' install)
           bash <(printf '%s' "$install") <(printf '%s' "$roles")

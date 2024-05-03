@@ -20,9 +20,11 @@ can be listed with
 
 ```
 find . \
+    -mindepth 1 \
     -maxdepth 1 \
     -type d \
-    -exec test -f '{}/tasks/main.yml' \; -exec basename '{}' \; \
+    -exec test -f '{}/tasks/main.yml' \; \
+    -exec basename '{}' \;
 ```
 
 ### Features
