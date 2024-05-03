@@ -1,18 +1,18 @@
-- name: osx | Check if homebrew is installed
+- name: Check if homebrew is installed
   ansible.builtin.stat:
     path: /opt/homebrew/bin/brew
   register: homebrew_stats
 
-- name: osx | Install homebrew
+- name: Install homebrew
   shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when: not homebrew_stats.stat.exists
 
-- name: osx | Update homebrew
+- name: Update homebrew
   homebrew:
     update_homebrew: true
   when: package_update
 
-- name: osx | Upgrade homebrew packages
+- name: Upgrade homebrew packages
   homebrew:
     upgrade_all: true
   when: package_upgrade

@@ -12,7 +12,7 @@
   register: firefox_profile_stats
 
 - name: Git clone firefox-push-pull-service
-  git:
+  ansible.builtin.git:
     repo: https://github.com/skeletony007/firefox-push-pull-service.git
     dest: ~/personal/firefox-push-pull-service
   when: not firefox_profile_stats.matched

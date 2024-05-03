@@ -1,10 +1,10 @@
-- name: arch | Update pacman
+- name: Update pacman
   become: true
   pacman:
     update_cache: true
   when: package_update
 
-- name: arch | Upgrade pacman packages
+- name: Upgrade pacman packages
   become: true
   pacman:
     upgrade: true

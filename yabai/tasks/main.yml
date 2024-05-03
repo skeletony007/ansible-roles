@@ -1,5 +1,3 @@
-# yabai is just for osx
-
 - name: Install yabai with homebrew
   homebrew:
     name: yabai
