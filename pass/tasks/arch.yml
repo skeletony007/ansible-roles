@@ -1,0 +1,9 @@
+- name: arch | Install pass with pacman
+  pacman:
+    name: pass
+    state: present
+
+- name: arch | Install pass-otp with pacman
+  pacman:
+    name: pass-otp
+    state: present
