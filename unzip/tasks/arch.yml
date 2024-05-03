@@ -1,4 +1,5 @@
 - name: arch | Install unzip with pacman
+  become: true
   pacman:
     name: unzip
-    status: present
+    state: present
