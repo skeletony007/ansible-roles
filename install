@@ -13,7 +13,7 @@ do
         -execdir [[ -p 'tasks/main.yml' ]] \; \
         2> /dev/null
     then
-        printf 'ansible-roles: %s is not a directory\n' "$role"
+        printf 'ansible: %s is not a role\n' "$role"
         continue
     fi
     playbook+="
