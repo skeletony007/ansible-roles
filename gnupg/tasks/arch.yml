@@ -1,4 +1,5 @@
 - name: arch | Install gnupg with pacman
+  become: true
   pacman:
     name: gnupg
     state: present

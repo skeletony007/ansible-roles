@@ -1,4 +1,5 @@
 - name: arch | Install nodejs with pacman
+  become: true
   pacman:
     name: nodejs
     state: present

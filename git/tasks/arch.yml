@@ -1,4 +1,5 @@
 - name: arch | Install git with pacman
+  become: true
   pacman:
     name: git
     state: present

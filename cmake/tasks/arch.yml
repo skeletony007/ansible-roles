@@ -1,4 +1,5 @@
 - name: arch | Install cmake with pacman
+  become: true
   pacman:
     name: cmake
     state: present
