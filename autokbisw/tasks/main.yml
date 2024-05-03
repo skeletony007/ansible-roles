@@ -11,7 +11,7 @@
     && cd /usr/local/bin && \
     curl https://github.com/ohueter/autokbisw/releases/download/{{ version }}/autokbisw-{{ version }}.ventura.tar.gz \
     | sudo tar -zxvf -
-  when: autokbisw_stats.stat.exists == false
+  when: not autokbisw_stats.stat.exists
 
 - name: Check if the autokbisw service exists
   ansible.builtin.stat:
@@ -23,8 +23,8 @@
     curl https://raw.githubusercontent.com/skeletony007/jeantil_autokbisw/master/eu.byjean.autokbisw.plist -o ~/Library/LaunchAgents/eu.byjean.autokbisw.plist \
     && launchctl load ~/Library/LaunchAgents/eu.byjean.autokbisw.plist \
     && launchctl load ~/Library/LaunchAgents/eu.byjean.autokbisw.plist
-  when: autokbisw_service_stats.stat.exists == false
+  when: not autokbisw_service_stats.stat.exists
 
 - name: Start autokbisw service
   shell: launchctl start eu.byjean.autokbisw
-  when: autokbisw_service_stats.stat.exists == false
+  when: not autokbisw_service_stats.stat.exists
