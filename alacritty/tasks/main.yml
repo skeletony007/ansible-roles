@@ -4,5 +4,5 @@
   register: alacritty_stats
 
 - name: Install alacritty with cargo
-  shell: cargo install alacritty
+  shell: "'{{ ansible_env.HOME }}/.cargo/bin/cargo' install alacritty"
   when: not alacritty_stats.stat.exists

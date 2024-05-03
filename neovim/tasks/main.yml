@@ -11,8 +11,9 @@
   when: not neovim_stats.stat.exists
 
 - name: Build neovim
+  become: true
   shell: |
     cd '{{ ansible_env.HOME }}/neovim' \
     && make CMAKE_BUILD_TYPE=Release && \
-    make install
+    sudo make install
   when: not neovim_stats.stat.exists
