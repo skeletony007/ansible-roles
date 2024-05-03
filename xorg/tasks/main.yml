@@ -10,12 +10,6 @@
     name: xorg-xinit
     state: present
 
-- name: Install startx with pacman
-  become: true
-  pacman:
-    name: startx
-    state: present
-
 - name: Install xorg-xrandr with pacman
   become: true
   pacman:
