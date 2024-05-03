@@ -11,13 +11,13 @@
 
 - name: Edit config.mk
   ansible.builtin.lineinfile:
-    path: '{{ ansible_env.HOME }}/dmenu/config.mk'
+    path: "{{ ansible_env.HOME }}/dmenu/config.mk"
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
   loop:
-    - { regexp: '^X11INC = .*$', line: 'X11INC = /opt/X11/include' }
-    - { regexp: '^X11LIB = .*$', line: 'X11LIB = /opt/X11/lib' }
-    - { regexp: '^FREETYPEINC = .*$', line: 'FREETYPEINC = /opt/homebrew/include/freetype2' }
+    - { regexp: "^X11INC = .*$", line: "X11INC = /opt/X11/include" }
+    - { regexp: "^X11LIB = .*$", line: "X11LIB = /opt/X11/lib" }
+    - { regexp: "^FREETYPEINC = .*$", line: "FREETYPEINC = /opt/homebrew/include/freetype2" }
   when: not dmenu_stats.stat.exists
 
 - name: Build dmenu
