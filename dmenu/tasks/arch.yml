@@ -1,4 +1,4 @@
-- name: Install dmenu with pacman
+- name: arch | Install dmenu with pacman
   pacman:
     name: dmenu
     state: present

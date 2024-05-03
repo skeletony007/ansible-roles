@@ -1,15 +1,15 @@
-- name: Check if the dmenu directory exists
+- name: osx | Check if the dmenu directory exists
   ansible.builtin.stat:
     path: "{{ ansible_env.HOME }}/dmenu"
   register: dmenu_stats
 
-- name: Git clone dmenu
+- name: osx | Git clone dmenu
   ansible.builtin.git:
     repo: git://git.suckless.org/dmenu
     dest: "{{ ansible_env.HOME }}/dmenu"
   when: not dmenu_stats.stat.exists
 
-- name: Edit config.mk
+- name: osx | Edit config.mk
   ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/dmenu/config.mk"
     regexp: "{{ item.regexp }}"
@@ -20,7 +20,7 @@
     - { regexp: "^FREETYPEINC = .*$", line: "FREETYPEINC = /opt/homebrew/include/freetype2" }
   when: not dmenu_stats.stat.exists
 
-- name: Build dmenu
+- name: osx | Build dmenu
   become: true
   shell: cd '{{ ansible_env.HOME }}/dmenu' && make clean install
   when: not dmenu_stats.stat.exists
