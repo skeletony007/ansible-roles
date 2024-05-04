@@ -3,3 +3,9 @@
   pacman:
     name: nodejs
     state: present
+
+- name: arch | Install npm with pacman
+  become: true
+  pacman:
+    name: npm
+    state: present
