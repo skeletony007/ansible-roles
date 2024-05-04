@@ -1,0 +1,5 @@
+- name: Install libsecret with pacman
+  become: true
+  pacman:
+    name: libsecret
+    state: present
