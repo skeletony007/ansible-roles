@@ -15,3 +15,9 @@
   pacman:
     name: xorg-xrandr
     state: present
+
+- name: Install xclip with pacman
+  become: true
+  pacman:
+    name: xclip
+    state: present
