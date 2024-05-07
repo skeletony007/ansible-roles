@@ -9,3 +9,9 @@
   pacman:
     name: i3status
     state: present
+
+- name: Install i3lock with pacman
+  become: true
+  pacman:
+    name: i3lock
+    state: present
