@@ -13,8 +13,9 @@
 
 - name: Git clone firefox-push-pull-service
   ansible.builtin.git:
-    repo: https://github.com/skeletony007/firefox-push-pull-service.git
-    dest: ~/personal/firefox-push-pull-service
+    repo: "https://github.com/skeletony007/firefox-push-pull-service.git"
+    dest: "{{ ansible_env.HOME }}/personal/firefox-push-pull-service"
+    depth: 1
   when: not firefox_profile_stats.matched
 
 - name: Create profile using firefox-push-pull-service

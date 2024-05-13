@@ -7,6 +7,7 @@
   ansible.builtin.git:
     repo: git://git.suckless.org/dmenu
     dest: "{{ ansible_env.HOME }}/dmenu"
+    depth: 1
   when: not dmenu_stats.stat.exists
 
 - name: osx | Edit config.mk

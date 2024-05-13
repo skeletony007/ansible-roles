@@ -8,6 +8,7 @@
     repo: "https://github.com/neovim/neovim.git"
     dest: "{{ ansible_env.HOME }}/neovim"
     version: "stable"
+    depth: 1
   when: not neovim_stats.stat.exists
 
 - name: Build neovim
