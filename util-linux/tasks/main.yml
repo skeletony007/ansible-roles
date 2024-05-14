@@ -1,0 +1,5 @@
+- name: Install util-linux with pacman
+  become: true
+  pacman:
+    name: util-linux
+    state: present

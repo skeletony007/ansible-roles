@@ -1,0 +1,5 @@
+- name: Install cpupower with pacman
+  become: true
+  pacman:
+    name: cpupower
+    state: present

@@ -1,0 +1,5 @@
+- name: Install intel-undervolt with pacman
+  become: true
+  pacman:
+    name: intel-undervolt
+    state: present
