@@ -1,0 +1,5 @@
+- name: Install ntp with pacman
+  become: true
+  community.general.pacman:
+    name: ntp
+    state: present
