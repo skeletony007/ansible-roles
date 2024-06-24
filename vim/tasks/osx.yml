@@ -1,4 +1,4 @@
 - name: osx | Install vim with homebrew
-  homebrew:
+  community.general.homebrew:
     name: vim
     state: present

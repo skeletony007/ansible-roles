@@ -1,9 +1,9 @@
 - name: Install yabai with homebrew
-  homebrew:
+  community.general.homebrew:
     name: yabai
     state: present
   register: yabai_installed
 
 - name: Start yabai service
-  shell: yabai --install-service
+  ansible.builtin.shell: yabai --install-service
   when: yabai_installed.changed

@@ -1,5 +1,5 @@
 - name: Install seahorse with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: seahorse
     state: present

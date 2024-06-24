@@ -1,4 +1,4 @@
 - name: osx | Install ninja with homebrew
-  homebrew:
+  community.general.homebrew:
     name: ninja
     state: present

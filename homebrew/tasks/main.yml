@@ -4,15 +4,15 @@
   register: homebrew_stats
 
 - name: Install homebrew
-  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ansible.builtin.shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when: not homebrew_stats.stat.exists
 
 - name: Update homebrew
-  homebrew:
+  community.general.homebrew:
     update_homebrew: true
   when: package_update
 
 - name: Upgrade homebrew packages
-  homebrew:
+  community.general.homebrew:
     upgrade_all: true
   when: package_upgrade

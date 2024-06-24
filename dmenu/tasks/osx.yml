@@ -23,5 +23,5 @@
 
 - name: osx | Build dmenu
   become: true
-  shell: cd '{{ ansible_env.HOME }}/dmenu' && make clean install
+  ansible.builtin.shell: cd '{{ ansible_env.HOME }}/dmenu' && make clean install
   when: not dmenu_stats.stat.exists

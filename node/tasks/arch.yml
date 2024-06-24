@@ -1,11 +1,11 @@
 - name: arch | Install nodejs with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: nodejs
     state: present
 
 - name: arch | Install npm with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: npm
     state: present

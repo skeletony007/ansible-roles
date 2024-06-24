@@ -4,7 +4,7 @@
   register: rust_stats
 
 - name: Install rust with rustup
-  shell: |
+  ansible.builtin.shell: |
     set -o pipefail
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
   when: not rust_stats.stat.exists

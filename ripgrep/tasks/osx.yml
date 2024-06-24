@@ -1,4 +1,4 @@
 - name: osx | Install ripgrep with homebrew
-  homebrew:
+  community.general.homebrew:
     name: ripgrep
     state: present

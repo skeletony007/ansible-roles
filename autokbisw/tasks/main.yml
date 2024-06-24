@@ -5,7 +5,7 @@
 
 - name: Install autokbisw binary
   become: true
-  shell: |
+  ansible.builtin.shell: |
     set -o pipefail
     mkdir -p /usr/local/bin \
     && cd /usr/local/bin && \
@@ -19,12 +19,12 @@
   register: autokbisw_service_stats
 
 - name: Install autokbisw service
-  shell: |
+  ansible.builtin.shell: |
     curl https://raw.githubusercontent.com/skeletony007/jeantil_autokbisw/master/eu.byjean.autokbisw.plist -o ~/Library/LaunchAgents/eu.byjean.autokbisw.plist \
     && launchctl load ~/Library/LaunchAgents/eu.byjean.autokbisw.plist \
     && launchctl load ~/Library/LaunchAgents/eu.byjean.autokbisw.plist
   when: not autokbisw_service_stats.stat.exists
 
 - name: Start autokbisw service
-  shell: launchctl start eu.byjean.autokbisw
+  ansible.builtin.shell: launchctl start eu.byjean.autokbisw
   when: not autokbisw_service_stats.stat.exists

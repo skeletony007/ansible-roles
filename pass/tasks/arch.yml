@@ -1,11 +1,11 @@
 - name: arch | Install pass with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: pass
     state: present
 
 - name: arch | Install pass-otp with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: pass-otp
     state: present

@@ -1,5 +1,5 @@
 - name: Install wireplumber with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: wireplumber
     state: present

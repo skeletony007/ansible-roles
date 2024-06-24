@@ -1,5 +1,5 @@
 - name: arch | Install zsh with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: zsh
     state: present

@@ -15,5 +15,5 @@
   #   name: cmake
   #   state: present
   # ```
-  shell: brew install cmake
+  ansible.builtin.shell: brew install cmake
   when: cmake_stats.stat.exists == false

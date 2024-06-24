@@ -1,4 +1,4 @@
 - name: Install macos-wallpaper with homebrew
-  homebrew:
+  community.general.homebrew:
     name: wallpaper
     state: present

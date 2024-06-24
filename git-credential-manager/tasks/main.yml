@@ -5,5 +5,5 @@
 
 ## requires dotnet 7.0
 - name: Install git-credential-manager as dotnet tool
-  shell: "{{ ansible_env.HOME }}/.dotnet/dotnet tool install -g git-credential-manager"
+  ansible.builtin.shell: "{{ ansible_env.HOME }}/.dotnet/dotnet tool install -g git-credential-manager"
   when: not gcm_stats.stat.exists

@@ -1,4 +1,4 @@
 - name: osx | Install git with homebrew
-  homebrew:
+  community.general.homebrew:
     name: git
     state: present

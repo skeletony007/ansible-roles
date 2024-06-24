@@ -19,5 +19,5 @@
   when: not firefox_profile_stats.matched
 
 - name: Create profile using firefox-push-pull-service
-  shell: cd ~/personal/firefox-push-pull-service && ./create
+  ansible.builtin.shell: cd ~/personal/firefox-push-pull-service && ./create
   when: not firefox_profile_stats.matched

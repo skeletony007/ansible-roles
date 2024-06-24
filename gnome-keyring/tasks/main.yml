@@ -1,12 +1,12 @@
 - name: Install gnome-keyring with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: gnome-keyring
     state: present
 
 # TODO: find a nicer way to check if a line is not in a file
 - name: "Check /etc/pam.d/login"
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "/etc/pam.d/login"
     line: "auth       optional     pam_gnome_keyring.so"
     state: present

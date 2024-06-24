@@ -1,11 +1,11 @@
 - name: Update pacman
   become: true
-  pacman:
+  community.general.pacman:
     update_cache: true
   when: package_update
 
 - name: Upgrade pacman packages
   become: true
-  pacman:
+  community.general.pacman:
     upgrade: true
   when: package_upgrade

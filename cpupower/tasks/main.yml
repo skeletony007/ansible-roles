@@ -1,5 +1,5 @@
 - name: Install cpupower with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: cpupower
     state: present

@@ -13,7 +13,7 @@
 
 - name: Build neovim
   become: true
-  shell: |
+  ansible.builtin.shell: |
     cd '{{ ansible_env.HOME }}/neovim' \
     && make CMAKE_BUILD_TYPE=Release && \
     sudo make install

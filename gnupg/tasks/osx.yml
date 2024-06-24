@@ -1,4 +1,4 @@
 - name: osx | Install gnupg with homebrew
-  homebrew:
+  community.general.homebrew:
     name: gnupg
     state: present

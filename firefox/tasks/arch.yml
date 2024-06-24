@@ -1,6 +1,6 @@
 - name: arch | Install firefox with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: firefox
     state: present
 

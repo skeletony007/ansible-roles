@@ -1,5 +1,5 @@
 - name: arch | Install dmenu with pacman
   become: true
-  pacman:
+  community.general.pacman:
     name: dmenu
     state: present

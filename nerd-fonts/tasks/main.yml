@@ -10,7 +10,7 @@
   register: nerd_fonts_stats
 
 - name: Install ubuntu mono nerd font
-  shell: |
+  ansible.builtin.shell: |
     mkdir -p '{{ fonts_dir }}'
     curl -f https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ version }}/patched-fonts/UbuntuMono/Regular/UbuntuMonoNerdFontMono-Regular.ttf > {{ fonts_dir }}/UbuntuMonoNerdFontMono-Regular.ttf
     curl -f https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ version }}/patched-fonts/UbuntuMono/Bold/UbuntuMonoNerdFontMono-Bold.ttf > {{ fonts_dir }}/UbuntuMonoNerdFontMono-Bold.ttf
