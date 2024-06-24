@@ -1,3 +1,7 @@
 [submodule "damien-omen"]
     path = "damien-omen"
     url = "https://github.com/skeletony007/damien-omen-ansible-role.git"
+
+[submodule "samsung-c32g75t"]
+    path = "samsung-c32g75t"
+    url = "https://github.com/skeletony007/samsung-c32g75t-ansible-role.git"
