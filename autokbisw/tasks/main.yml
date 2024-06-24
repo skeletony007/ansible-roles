@@ -3,28 +3,27 @@
     path: "/usr/local/bin/autokbisw"
   register: autokbisw_stats
 
+# assume MacOS Ventura
 - name: Install autokbisw binary
   become: true
   ansible.builtin.shell: |
     set -o pipefail
     mkdir -p /usr/local/bin \
-    && cd /usr/local/bin && \
-    curl https://github.com/ohueter/autokbisw/releases/download/{{ version }}/autokbisw-{{ version }}.ventura.tar.gz \
+    && cd /usr/local/bin \
+    && curl \
+        --proto '=https' \
+        https://github.com/ohueter/autokbisw/releases/download/{{ version }}/autokbisw-{{ version }}.ventura.tar.gz \
     | sudo tar -zxvf -
   when: not autokbisw_stats.stat.exists
 
-- name: Check if the autokbisw service exists
-  ansible.builtin.stat:
-    path: "~/Library/LaunchAgents/eu.byjean.autokbisw.plist"
-  register: autokbisw_service_stats
-
 - name: Install autokbisw service
-  ansible.builtin.shell: |
-    curl https://raw.githubusercontent.com/skeletony007/jeantil_autokbisw/master/eu.byjean.autokbisw.plist -o ~/Library/LaunchAgents/eu.byjean.autokbisw.plist \
-    && launchctl load ~/Library/LaunchAgents/eu.byjean.autokbisw.plist \
-    && launchctl load ~/Library/LaunchAgents/eu.byjean.autokbisw.plist
-  when: not autokbisw_service_stats.stat.exists
+  ansible.builtin.copy:
+    src: eu.byjean.autokbisw.plist
+    dest: "{{ ansible_env.HOME }}/Library/LaunchAgents/eu.byjean.autokbisw.plist"
+    mode: "0644"
 
-- name: Start autokbisw service
-  ansible.builtin.shell: launchctl start eu.byjean.autokbisw
-  when: not autokbisw_service_stats.stat.exists
+- name: Start service eu.byjean.autokbisw
+  community.general.launchd:
+    name: eu.byjean.autokbisw
+    state: started
+    enabled: true
