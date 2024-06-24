@@ -1,0 +1,5 @@
+- name: Install gimp with pacman
+  become: true
+  community.general.pacman:
+    name: gimp
+    state: present
