@@ -1,0 +1,4 @@
+- name: Install librespot with cargo
+  community.general.cargo:
+    name: librespot
+    state: present
