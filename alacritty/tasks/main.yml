@@ -1,8 +1,4 @@
-- name: Check if alacritty is installed
-  ansible.builtin.stat:
-    path: "{{ ansible_env.HOME }}/.cargo/bin/alacritty"
-  register: alacritty_stats
-
 - name: Install alacritty with cargo
-  ansible.builtin.shell: "'{{ ansible_env.HOME }}/.cargo/bin/cargo' install alacritty"
-  when: not alacritty_stats.stat.exists
+  community.general.cargo:
+    name: alacritty
+    state: present
