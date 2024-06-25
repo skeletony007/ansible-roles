@@ -1,0 +1,9 @@
+- name: Darwin | Install pass with homebrew
+  community.general.homebrew:
+    name: pass
+    state: present
+
+- name: Darwin | Install pass-otp with homebrew
+  community.general.homebrew:
+    name: pass-otp
+    state: present

@@ -1,0 +1,4 @@
+- name: Darwin | Install ninja with homebrew
+  community.general.homebrew:
+    name: ninja
+    state: present

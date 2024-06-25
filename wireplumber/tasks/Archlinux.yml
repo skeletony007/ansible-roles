@@ -1,0 +1,5 @@
+- name: Archlinux | Install wireplumber with pacman
+  become: true
+  community.general.pacman:
+    name: wireplumber
+    state: present

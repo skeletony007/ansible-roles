@@ -1,0 +1,5 @@
+- name: Archlinux | Install util-linux with pacman
+  become: true
+  community.general.pacman:
+    name: util-linux
+    state: present

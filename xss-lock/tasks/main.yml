@@ -1,5 +1,2 @@
-- name: Install xss-lock with pacman
-  become: true
-  community.general.pacman:
-    name: xss-lock
-    state: present
+- name: Load OS-specific tasks
+  ansible.builtin.include_tasks: "tasks/{{ ansible_distribution }}.yml"

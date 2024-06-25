@@ -1,0 +1,4 @@
+- name: Darwin | Install tmux with homebrew
+  community.general.homebrew:
+    name: tmux
+    state: present

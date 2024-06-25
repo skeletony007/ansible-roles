@@ -1,2 +1,2 @@
-- import_tasks: arch.yml
-  when: ansible_os_family == "Archlinux"
+- name: Load OS-specific tasks
+  ansible.builtin.include_tasks: "tasks/{{ ansible_distribution }}.yml"

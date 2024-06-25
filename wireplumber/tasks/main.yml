@@ -1,5 +1,2 @@
-- name: Install wireplumber with pacman
-  become: true
-  community.general.pacman:
-    name: wireplumber
-    state: present
+- name: Load OS-specific tasks
+  ansible.builtin.include_tasks: "tasks/{{ ansible_distribution }}.yml"

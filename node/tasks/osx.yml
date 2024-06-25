@@ -1,4 +1,0 @@
-- name: osx | Install node with homebrew
-  community.general.homebrew:
-    name: node
-    state: present

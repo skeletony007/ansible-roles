@@ -1,4 +1,0 @@
-- name: osx | Install tmux with homebrew
-  community.general.homebrew:
-    name: tmux
-    state: present

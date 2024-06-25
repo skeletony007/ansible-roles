@@ -1,0 +1,4 @@
+- name: Darwin | Install git with homebrew
+  community.general.homebrew:
+    name: git
+    state: present

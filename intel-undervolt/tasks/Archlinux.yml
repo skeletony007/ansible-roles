@@ -1,0 +1,5 @@
+- name: Archlinux | Install intel-undervolt with pacman
+  become: true
+  community.general.pacman:
+    name: intel-undervolt
+    state: present

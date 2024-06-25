@@ -1,3 +1,5 @@
 dependencies:
   - role: pacman
+    when: ansible_distribution == "Archlinux"
+
   - role: libsecret

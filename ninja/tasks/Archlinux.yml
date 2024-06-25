@@ -1,0 +1,5 @@
+- name: Archlinux | Install ninja with pacman
+  become: true
+  community.general.pacman:
+    name: ninja
+    state: present

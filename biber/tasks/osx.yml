@@ -1,4 +1,0 @@
-- name: osx | Install biber with homebrew
-  community.general.homebrew:
-    name: biber
-    state: present

@@ -1,0 +1,5 @@
+- name: Archlinux | Install inetutils with pacman
+  become: true
+  community.general.pacman:
+    name: inetutils
+    state: present

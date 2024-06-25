@@ -1,0 +1,5 @@
+- name: Archlinux | Install gnupg with pacman
+  become: true
+  community.general.pacman:
+    name: gnupg
+    state: present

@@ -1,17 +1,2 @@
-- name: Install pipewire-jack with pacman
-  become: true
-  community.general.pacman:
-    name: pipewire-jack
-    state: present
-
-- name: Install pipewire-alsa with pacman
-  become: true
-  community.general.pacman:
-    name: pipewire-alsa
-    state: present
-
-- name: Install pipewire-pulse with pacman
-  become: true
-  community.general.pacman:
-    name: pipewire-pulse
-    state: present
+- name: Load OS-specific tasks
+  ansible.builtin.include_tasks: "tasks/{{ ansible_distribution }}.yml"

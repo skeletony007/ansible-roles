@@ -1,0 +1,5 @@
+- name: Archlinux | Install xss-lock with pacman
+  become: true
+  community.general.pacman:
+    name: xss-lock
+    state: present

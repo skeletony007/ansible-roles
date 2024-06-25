@@ -1,0 +1,4 @@
+- name: Darwin | Install ripgrep with homebrew
+  community.general.homebrew:
+    name: ripgrep
+    state: present

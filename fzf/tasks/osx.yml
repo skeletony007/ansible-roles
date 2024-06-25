@@ -1,4 +1,0 @@
-- name: osx | Install fzf with homebrew
-  community.general.homebrew:
-    name: fzf
-    state: present

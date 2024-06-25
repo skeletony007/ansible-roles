@@ -1,0 +1,5 @@
+- name: Archlinux | Install dmenu with pacman
+  become: true
+  community.general.pacman:
+    name: dmenu
+    state: present

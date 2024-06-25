@@ -1,4 +1,0 @@
-- name: osx | Install openjdk with homebrew (version {{ java_version }})
-  community.general.homebrew:
-    name: openjdk@{{ java_version }}
-    state: present

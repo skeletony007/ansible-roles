@@ -1,0 +1,4 @@
+- name: Darwin | Install vim with homebrew
+  community.general.homebrew:
+    name: vim
+    state: present

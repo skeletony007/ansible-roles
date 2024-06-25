@@ -1,0 +1,5 @@
+- name: Archlinux | Install libsecret with pacman
+  become: true
+  community.general.pacman:
+    name: libsecret
+    state: present

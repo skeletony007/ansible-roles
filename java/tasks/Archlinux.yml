@@ -1,0 +1,21 @@
+- name: Archlinux | Install java-environment-common with pacman
+  become: true
+  community.general.pacman:
+    name: java-environment-common
+    state: present
+
+- name: Archlinux | Install java-runtime-common with pacman
+  become: true
+  community.general.pacman:
+    name: java-runtime-common
+    state: present
+
+- name: Archlinux | Install jdk17-openjdk with pacman
+  become: true
+  community.general.pacman:
+    name: jdk17-openjdk
+    state: present
+
+- name: Archlinux | Link environment file using archlinux-java
+  become: true
+  ansible.builtin.command: archlinux-java set java-17-openjdk

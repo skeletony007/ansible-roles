@@ -1,0 +1,5 @@
+- name: Archlinux | Install android-file-transfer with pacman
+  become: true
+  community.general.pacman:
+    name: android-file-transfer
+    state: present

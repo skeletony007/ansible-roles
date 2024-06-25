@@ -1,0 +1,17 @@
+- name: Archlinux | Install pipewire-jack with pacman
+  become: true
+  community.general.pacman:
+    name: pipewire-jack
+    state: present
+
+- name: Archlinux | Install pipewire-alsa with pacman
+  become: true
+  community.general.pacman:
+    name: pipewire-alsa
+    state: present
+
+- name: Archlinux | Install pipewire-pulse with pacman
+  become: true
+  community.general.pacman:
+    name: pipewire-pulse
+    state: present

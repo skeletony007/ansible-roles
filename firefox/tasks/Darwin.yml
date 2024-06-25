@@ -1,0 +1,4 @@
+- name: Darwin | Install firefox with homebrew
+  homebrew_cask:
+    name: firefox
+    state: present

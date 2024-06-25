@@ -1,0 +1,5 @@
+- name: Archlinux | Install feh with pacman
+  become: true
+  community.general.pacman:
+    name: feh
+    state: present

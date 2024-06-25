@@ -5,7 +5,7 @@
 
 # - https://github.com/dotnet/install-scripts
 # - https://dotnet.microsoft.com/en-us/download/dotnet/scripts
-- name: install dotnet with dotnet-install.sh
+- name: Install dotnet with dotnet-install.sh
   ansible.builtin.shell: |
     set -o pipefail
     dotnet_install_script=$(curl --proto '=https' -sSf https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh)

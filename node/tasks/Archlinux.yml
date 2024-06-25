@@ -1,0 +1,11 @@
+- name: Archlinux | Install nodejs with pacman
+  become: true
+  community.general.pacman:
+    name: nodejs
+    state: present
+
+- name: Archlinux | Install npm with pacman
+  become: true
+  community.general.pacman:
+    name: npm
+    state: present

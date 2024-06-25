@@ -1,0 +1,4 @@
+- name: Darwin | Install zsh with homebrew
+  community.general.homebrew:
+    name: zsh
+    state: present

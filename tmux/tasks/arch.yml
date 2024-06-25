@@ -1,5 +1,0 @@
-- name: arch | Install tmux with pacman
-  become: true
-  community.general.pacman:
-    name: tmux
-    state: present

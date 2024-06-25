@@ -1,5 +1,2 @@
-- name: Install util-linux with pacman
-  become: true
-  community.general.pacman:
-    name: util-linux
-    state: present
+- name: Load OS-specific tasks
+  ansible.builtin.include_tasks: "tasks/{{ ansible_distribution }}.yml"

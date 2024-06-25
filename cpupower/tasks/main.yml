@@ -1,5 +1,2 @@
-- name: Install cpupower with pacman
-  become: true
-  community.general.pacman:
-    name: cpupower
-    state: present
+- name: Load OS-specific tasks
+  ansible.builtin.include_tasks: "tasks/{{ ansible_distribution }}.yml"

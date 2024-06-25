@@ -1,6 +1,6 @@
 dependencies:
   - role: git
-    when: ansible_os_family == "Darwin"
+    when: ansible_distribution == "Darwin"
 
   - role: pacman
-    when: ansible_os_family == "Archlinux"
+    when: ansible_distribution == "Archlinux"

@@ -1,2 +1,2 @@
-- import_tasks: osx.yml
-  when: ansible_os_family == 'Darwin'
+- name: Load OS-specific tasks
+  ansible.builtin.include_tasks: "tasks/{{ ansible_distribution }}.yml"

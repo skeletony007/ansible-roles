@@ -1,0 +1,4 @@
+- name: Darwin | Install gnupg with homebrew
+  community.general.homebrew:
+    name: gnupg
+    state: present

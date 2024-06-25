@@ -1,0 +1,5 @@
+- name: Archlinux | Install cmake with pacman
+  become: true
+  community.general.pacman:
+    name: cmake
+    state: present

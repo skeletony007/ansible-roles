@@ -1,3 +1,0 @@
-- name: osx | Set fonts dir
-  ansible.builtin.set_fact:
-    fonts_dir: "{{ ansible_env.HOME }}/Library/Fonts"

@@ -1,0 +1,27 @@
+- name: Darwin | Check if the dmenu directory exists
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/dmenu"
+  register: dmenu_stats
+
+- name: Darwin | Git clone dmenu
+  ansible.builtin.git:
+    repo: git://git.suckless.org/dmenu
+    dest: "{{ ansible_env.HOME }}/dmenu"
+    depth: 1
+  when: not dmenu_stats.stat.exists
+
+- name: Darwin | Edit config.mk
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/dmenu/config.mk"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  loop:
+    - { regexp: "^X11INC = .*$", line: "X11INC = /opt/X11/include" }
+    - { regexp: "^X11LIB = .*$", line: "X11LIB = /opt/X11/lib" }
+    - { regexp: "^FREETYPEINC = .*$", line: "FREETYPEINC = /opt/homebrew/include/freetype2" }
+  when: not dmenu_stats.stat.exists
+
+- name: Darwin | Build dmenu
+  become: true
+  ansible.builtin.shell: cd '{{ ansible_env.HOME }}/dmenu' && make clean install
+  when: not dmenu_stats.stat.exists

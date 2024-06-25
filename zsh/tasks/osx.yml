@@ -1,4 +1,0 @@
-- name: osx | Install zsh with homebrew
-  community.general.homebrew:
-    name: zsh
-    state: present

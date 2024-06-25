@@ -1,0 +1,5 @@
+- name: Archlinux | Install ripgrep with pacman
+  become: true
+  community.general.pacman:
+    name: ripgrep
+    state: present

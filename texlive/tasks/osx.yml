@@ -1,4 +1,0 @@
-- name: osx | Install texlive with homebrew
-  community.general.homebrew:
-    name: texlive
-    state: present
