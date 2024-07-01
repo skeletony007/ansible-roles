@@ -3,9 +3,3 @@
   community.general.pacman:
     name: pass
     state: present
-
-- name: Archlinux | Install pass-otp with pacman
-  become: true
-  community.general.pacman:
-    name: pass-otp
-    state: present

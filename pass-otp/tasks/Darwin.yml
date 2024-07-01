@@ -1,0 +1,4 @@
+- name: Darwin | Install pass-otp with homebrew
+  community.general.homebrew:
+    name: pass-otp
+    state: present
