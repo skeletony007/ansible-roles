@@ -7,17 +7,7 @@
     <key>ProgramArguments</key>
     <array>
       <string>/usr/local/bin/autokbisw</string>
-  <!-- 
-      <string>--location</string>
-      <string>-v</string>
-  -->
     </array>
-  <!-- 
-    <key>StandardOutPath</key>
-    <string>/usr/local/var/log/autokbisw.log</string>
-    <key>StandardErrorPath</key>
-    <string>/usr/local/var/log/autokbisw.log</string>
-  -->
     <key>RunAtLoad</key>
     <true/>
   </dict>
