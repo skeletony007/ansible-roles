@@ -1,0 +1,10 @@
+# file name pattern for {{ profiles_dir }} non-recursive find
+profile_name: "default-release"
+
+# assume firefox is in PATH
+# used to create profile
+firefox_cmd: firefox
+
+arkenfox_scripts:
+  - { name: "prefsCleaner.sh", args: "-s" }
+  - { name: "updater.sh", args: "-usb" }

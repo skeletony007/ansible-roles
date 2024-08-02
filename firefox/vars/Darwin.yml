@@ -1,1 +1,6 @@
-firefox_profile_dir: "{{ ansible_env.HOME }}/Library/Application Support/Firefox/Profiles"
+paths:
+  {
+    profiles: "{{ ansible_env.HOME }}/Library/Application Support/Firefox/Profiles",
+    policy: "/Applications/Firefox.app/Contents/Resources/distribution/policies.json",
+    passff_hosts: "{{ ansible_env.HOME }}/Library/Application Support/Mozilla/NativeMessagingHosts/passff.json",
+  }

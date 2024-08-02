@@ -1,0 +1,75 @@
+{
+  "version": 3,
+  "commands": {
+    "relax-blocking-mode": {
+      "precedenceList": [
+        {
+          "id": "uBlock0@raymondhill.net",
+          "value": {
+            "shortcut": "Alt+C"
+          }
+        }
+      ]
+    },
+    "launch-element-picker": {
+      "precedenceList": [
+        {
+          "id": "uBlock0@raymondhill.net",
+          "value": {
+            "shortcut": "Alt+X"
+          }
+        }
+      ]
+    },
+    "open-dashboard": {
+      "precedenceList": [
+        {
+          "id": "uBlock0@raymondhill.net",
+          "value": {
+            "shortcut": "Alt+Shift+X"
+          }
+        }
+      ]
+    },
+    "launch-logger": {
+      "precedenceList": [
+        {
+          "id": "uBlock0@raymondhill.net",
+          "value": {
+            "shortcut": "Alt+R"
+          }
+        }
+      ]
+    },
+    "launch-element-zapper": {
+      "precedenceList": [
+        {
+          "id": "uBlock0@raymondhill.net",
+          "value": {
+            "shortcut": "Alt+Z"
+          }
+        }
+      ]
+    },
+    "new_temporary_container_tab": {
+      "precedenceList": [
+        {
+          "id": "{c607c8df-14a7-4f28-894f-29e8722976af}",
+          "value": {
+            "shortcut": "Ctrl+Alt+C"
+          }
+        }
+      ]
+    },
+    "new_same_container_tab": {
+      "precedenceList": [
+        {
+          "id": "{c607c8df-14a7-4f28-894f-29e8722976af}",
+          "value": {
+            "shortcut": "Ctrl+Alt+T"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+- name: arkenfox | Download scripts
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/arkenfox/user.js/master/{{ item.name }}"
+    dest: "{{ profile_path }}/{{ item.name }}"
+    mode: "0755"
+  loop: "{{ arkenfox_scripts }}"
+
+- name: arkenfox | Run scripts
+  ansible.builtin.command:
+    cmd: "'{{ profile_path }}/{{ item.name }}' {{ item.args }}"
+    chdir: "{{ profile_path }}"
+  loop: "{{ arkenfox_scripts }}"

@@ -1,23 +1,52 @@
 - name: Load OS-specific vars
-  ansible.builtin.include_vars: "vars/{{ ansible_distribution }}.yml"
+  ansible.builtin.include_vars: "vars/{{ ansible_os_family }}.yml"
 
 - name: Load OS-specific tasks
-  ansible.builtin.include_tasks: "tasks/{{ ansible_distribution }}.yml"
+  ansible.builtin.include_tasks: "tasks/{{ ansible_os_family }}.yml"
 
-- name: Check if the firefox profile directory exists
-  ansible.builtin.find:
-    paths: "{{ firefox_profile_dir }}"
-    file_type: directory
-    recurse: false
-  register: firefox_profile_stats
+- name: Copy policy file
+  ansible.builtin.copy:
+    src: firefox/distribution/policies.json
+    dest: "{{ paths.policy }}"
+    mode: "0660"
 
-- name: Git clone firefox-push-pull-service
-  ansible.builtin.git:
-    repo: "https://github.com/skeletony007/firefox-push-pull-service.git"
-    dest: "{{ ansible_env.HOME }}/personal/firefox-push-pull-service"
-    depth: 1
-  when: not firefox_profile_stats.matched
+- name: Setup profile {{ profile_name }}
+  block:
+    - name: Find profile {{ profile_name }}
+      ansible.builtin.find:
+        paths: "{{ paths.profiles }}"
+        file_type: directory
+        patterns: "*.{{ profile_name }}"
+        recurse: false
+      register: found_profiles
+      failed_when: found_profiles.matched == 0
+  rescue:
+    - name: Create profile {{ profile_name }}
+      ansible.builtin.command:
+        argv:
+          - "{{ firefox_cmd }}"
+          - "-headless"
+          - "-CreateProfile"
+          - "{{ profile_name }}"
+    - name: Find profile {{ profile_name }}
+      ansible.builtin.find:
+        paths: "{{ paths.profiles }}"
+        file_type: directory
+        patterns: "*.{{ profile_name }}"
+        recurse: false
+      register: found_profiles
+      failed_when: found_profiles.matched == 0
 
-- name: Create profile using firefox-push-pull-service
-  ansible.builtin.shell: cd '{{ ansible_env.HOME }}/personal/firefox-push-pull-service' && ./create
-  when: not firefox_profile_stats.matched
+- name: Set found profile {{ profile_name }}
+  ansible.builtin.set_fact:
+    profile_path: "{{ found_profiles.files[0].path }}"
+  failed_when: found_profiles.matched != 1
+
+- name: Copy profile data
+  ansible.builtin.copy:
+    src: profile/
+    dest: "{{ profile_path }}"
+    mode: "0660"
+
+- name: Load arkenfox tasks
+  ansible.builtin.include_tasks: "tasks/arkenfox.yml"
