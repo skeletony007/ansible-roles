@@ -4,20 +4,25 @@ playbook='---
 - hosts: localhost
   roles:'
 
-while IFS= read -r role
-do
-    if ! find "$role" \
-        -mindepth 1 \
-        -maxdepth 1 \
-        -type d \
-        -execdir [[ -p 'tasks/main.yml' ]] \; \
-        2> /dev/null
-    then
-        printf 'ansible: %s is not a role\n' "$role"
+declare -a nar=()
+declare -a seen=()
+
+for role in $(for file in "$@"; do xargs <"$file"; done); do
+    if [[ " ${seen[*]} " =~ " $role " ]]; then
         continue
     fi
-    playbook+="
+
+    seen+=("$role")
+    if find "$role" -mindepth 1 -maxdepth 1 -type d -execdir [ -p 'tasks/main.yml' ] \; &>/dev/null; then
+        playbook+="
     - role: '$role'"
-done < "$1"
+    else
+        nar+=("$role")
+    fi
+done
+
+for role in "${nar[@]}"; do
+    printf 'ansible: %s is not a role\n' "$role"
+done
 
 ansible-playbook <(printf '%s' "$playbook") --ask-become-pass
