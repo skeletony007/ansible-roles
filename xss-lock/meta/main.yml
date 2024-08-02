@@ -1,5 +1,5 @@
 dependencies:
   - role: pacman
-    when: ansible_distribution == "Archlinux"
+    when: ansible_os_family == "Archlinux"
 
   - role: xorg

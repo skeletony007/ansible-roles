@@ -6,4 +6,4 @@ dependencies:
     when: use_ninja
 
   - role: unzip
-    when: ansible_distribution == "Archlinux"
+    when: ansible_os_family == "Archlinux"

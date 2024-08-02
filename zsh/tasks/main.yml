@@ -1,5 +1,5 @@
 - name: Load OS-specific tasks
-  ansible.builtin.include_tasks: "tasks/{{ ansible_distribution }}.yml"
+  ansible.builtin.include_tasks: "tasks/{{ ansible_os_family }}.yml"
 
 - name: Ensure /etc/shells includes {{ lookup('pipe', 'which zsh') }}
   become: true
