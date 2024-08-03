@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 playbook='---
-- hosts: localhost
+- hosts: local
   roles:'
 
 declare -a nar=()
