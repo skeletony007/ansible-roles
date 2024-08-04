@@ -1,9 +1,4 @@
-- name: Check if git-credential-manager is installed
-  ansible.builtin.stat:
-    path: "{{ ansible_env.HOME }}/.dotnet/tools/git-credential-manager"
-  register: gcm_stats
-
-## requires dotnet 7.0
 - name: Install git-credential-manager as dotnet tool
-  ansible.builtin.shell: "{{ ansible_env.HOME }}/.dotnet/dotnet tool install -g git-credential-manager"
-  when: not gcm_stats.stat.exists
+  ansible.builtin.command:
+    cmd: "{{ ansible_env.HOME }}/.dotnet/dotnet tool install -g git-credential-manager"
+    creates: "{{ ansible_env.HOME }}/.dotnet/tools/git-credential-manager"

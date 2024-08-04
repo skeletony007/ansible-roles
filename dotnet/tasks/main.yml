@@ -1,14 +1,15 @@
-- name: Check if dotnet is installed
-  ansible.builtin.stat:
-    path: "{{ ansible_env.HOME }}/.dotnet/dotnet"
-  register: dotnet_stats
+- name: Find dotnet {{ channel }}
+  ansible.builtin.find:
+    paths: "{{ ansible_env.HOME }}/.dotnet/shared/Microsoft.NETCore.App"
+    file_type: directory
+    patterns: "^{{ channel }}.*"
+    recurse: false
+    use_regex: true
+  register: found_runtimes
 
-# - https://github.com/dotnet/install-scripts
-# - https://dotnet.microsoft.com/en-us/download/dotnet/scripts
 - name: Install dotnet with dotnet-install.sh
   ansible.builtin.shell: |
     set -o pipefail
-    dotnet_install_script=$(curl --proto '=https' -sSf https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh)
-    echo "$dotnet_install_script" | bash -s -- --channel LTS
-    echo "$dotnet_install_script" | bash -s -- --channel 7.0 --runtime dotnet ## git-credential-manager requires dotnet 7.0
-  when: dotnet_stats.stat.exists == false
+    curl --proto '=https' -sSf https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh | bash -s -- --channel {{ channel }} --runtime dotnet
+  when: found_runtimes.matched == 0
+  changed_when: found_runtimes.matched == 0

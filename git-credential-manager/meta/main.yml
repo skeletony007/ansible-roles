@@ -1,2 +1,4 @@
 dependencies:
   - role: dotnet
+    vars:
+      channel: 7.0
