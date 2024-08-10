@@ -28,6 +28,7 @@
           - "-headless"
           - "-CreateProfile"
           - "{{ profile_name }}"
+      changed_when: true
     - name: Find profile {{ profile_name }}
       ansible.builtin.find:
         paths: "{{ paths.profiles }}"

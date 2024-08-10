@@ -2,9 +2,10 @@
 profile_name: "default-release"
 
 # assume firefox is in PATH
-# used to create profile
+# used to create profile if it does not already exist
 firefox_cmd: firefox
 
+# Arkenfox scripts to execute (in-order)
 arkenfox_scripts:
   - { name: "prefsCleaner.sh", args: "-s" }
   - { name: "updater.sh", args: "-usb" }
