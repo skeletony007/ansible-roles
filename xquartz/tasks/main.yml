@@ -1,0 +1,4 @@
+- name: Install xquartz with homebrew
+  homebrew_cask:
+    name: xquartz
+    state: present

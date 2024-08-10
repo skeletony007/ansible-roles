@@ -1,0 +1,16 @@
+- name: Darwin | Edit config.mk
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/dmenu/config.mk"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  loop:
+    - { regexp: "^X11INC = .*$", line: "X11INC = /opt/X11/include" }
+    - { regexp: "^X11LIB = .*$", line: "X11LIB = /opt/X11/lib" }
+    - { regexp: "^FREETYPEINC = .*$", line: "FREETYPEINC = /opt/homebrew/include/freetype2" }
+
+- name: Darwin | Build dmenu
+  become: true
+  ansible.builtin.command:
+    chdir: "{{ ansible_env.HOME }}/dmenu"
+    cmd: make clean install
+  changed_when: true
