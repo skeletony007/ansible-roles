@@ -2,3 +2,6 @@
   community.general.cargo:
     name: librespot
     state: present
+
+- name: Load OS-specific tasks
+  ansible.builtin.include_tasks: "tasks/{{ ansible_os_family }}.yml"

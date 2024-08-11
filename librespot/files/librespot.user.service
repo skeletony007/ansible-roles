@@ -1,0 +1,17 @@
+[Unit]
+Description=Librespot (an open source Spotify client)
+Documentation=https://github.com/librespot-org/librespot
+Documentation=https://github.com/librespot-org/librespot/wiki/Options
+Wants=network.target sound.target
+After=network.target sound.target
+
+[Service]
+Restart=always
+RestartSec=10
+ExecStart=%h/.local/scripts/spotifydaemon --disable-discovery
+Environment="USER=%u"
+Environment="HOSTNAME=%H"
+Environment="PATH=/usr/bin:%h/.cargo/bin:$PATH"
+
+[Install]
+WantedBy=default.target

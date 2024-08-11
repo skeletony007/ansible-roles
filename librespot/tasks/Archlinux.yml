@@ -1,0 +1,18 @@
+- name: Archlinux | Copy Librespot User Service
+  become: true
+  ansible.builtin.copy:
+    src: librespot.user.service
+    dest: /usr/lib/systemd/user/librespot.user.service
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Archlinux | Enable Librespot User Service
+  become: true
+  become_user: skeletony007
+  ansible.builtin.systemd_service:
+    name: librespot.user.service
+    scope: user
+    daemon_reload: true
+    state: started
+    enabled: true
