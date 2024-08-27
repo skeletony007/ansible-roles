@@ -5,10 +5,11 @@
   ansible.builtin.include_tasks: "tasks/{{ ansible_os_family }}.yml"
 
 - name: Copy policy file
+  become: true
   ansible.builtin.copy:
     src: firefox/distribution/policies.json
     dest: "{{ paths.policy }}"
-    mode: "0660"
+    mode: "0644"
 
 - name: Setup profile {{ profile_name }}
   block:
@@ -47,7 +48,7 @@
   ansible.builtin.copy:
     src: profile/
     dest: "{{ profile_path }}"
-    mode: "0660"
+    mode: "0644"
 
 - name: Load arkenfox tasks
   ansible.builtin.include_tasks: "tasks/arkenfox.yml"

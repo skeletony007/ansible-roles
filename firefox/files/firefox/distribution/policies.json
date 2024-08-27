@@ -71,7 +71,7 @@
     "DisablePocket": true,
     "ExtensionSettings": {
       "*": {
-        "installation_mode": "allowed",
+        "installation_mode": "blocked",
         "updates_disabled": true,
         "allowed_types": [
           "extension"
