@@ -1,20 +1,16 @@
-- name: Check if the autokbisw binary exists
-  ansible.builtin.stat:
-    path: "/usr/local/bin/autokbisw"
-  register: autokbisw_stats
-
 # assume MacOS Ventura
 - name: Install autokbisw binary
   become: true
-  ansible.builtin.shell: |
-    set -o pipefail
-    mkdir -p /usr/local/bin \
-    && cd /usr/local/bin \
-    && curl \
-        --proto '=https' \
-        https://github.com/ohueter/autokbisw/releases/download/{{ version }}/autokbisw-{{ version }}.ventura.tar.gz \
-    | sudo tar -zxvf -
-  when: not autokbisw_stats.stat.exists
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      mkdir -p /usr/local/bin \
+      && cd /usr/local/bin \
+      && curl \
+          --proto '=https' \
+          https://github.com/ohueter/autokbisw/releases/download/{{ version }}/autokbisw-{{ version }}.ventura.tar.gz \
+      | sudo tar -zxvf -
+    creates: /usr/local/bin/autokbisw
 
 - name: Install autokbisw service
   ansible.builtin.copy:

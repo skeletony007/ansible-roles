@@ -1,14 +1,17 @@
 - name: Load OS-specific variables
   ansible.builtin.include_vars: "vars/{{ ansible_os_family }}.yml"
 
-- name: Check if ubuntu mono nerd font is already installed
-  ansible.builtin.stat:
-    path: "{{ fonts_dir }}/UbuntuMonoNerdFontMono-Regular.ttf"
-  register: nerd_fonts_stats
-
-- name: Install ubuntu mono nerd font
-  ansible.builtin.shell: |
-    mkdir -p '{{ fonts_dir }}'
-    curl -f https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ version }}/patched-fonts/UbuntuMono/Regular/UbuntuMonoNerdFontMono-Regular.ttf > {{ fonts_dir }}/UbuntuMonoNerdFontMono-Regular.ttf
-    curl -f https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ version }}/patched-fonts/UbuntuMono/Bold/UbuntuMonoNerdFontMono-Bold.ttf > {{ fonts_dir }}/UbuntuMonoNerdFontMono-Bold.ttf
-  when: not nerd_fonts_stats.stat.exists
+- name: Download Ubuntu Mono Nerd Fonts (Regular and Bold)
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    mode: "0644"
+  loop:
+    - {
+        url: "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ version }}/patched-fonts/UbuntuMono/Regular/UbuntuMonoNerdFontMono-Regular.ttf",
+        dest: "{{ fonts_dir }}/UbuntuMonoNerdFontMono-Regular.ttf",
+      }
+    - {
+        url: "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/{{ version }}/patched-fonts/UbuntuMono/Bold/UbuntuMonoNerdFontMono-Bold.ttf",
+        dest: "{{ fonts_dir }}/UbuntuMonoNerdFontMono-Bold.ttf",
+      }

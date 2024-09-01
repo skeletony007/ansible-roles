@@ -1,4 +1,4 @@
-- name: Darwin | Install openjdk with homebrew (version {{ java_version }})
+- name: Darwin | Install openjdk with homebrew (version {{ version }})
   community.general.homebrew:
-    name: openjdk@{{ java_version }}
+    name: openjdk@{{ version }}
     state: present
