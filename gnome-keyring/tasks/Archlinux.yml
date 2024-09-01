@@ -4,25 +4,10 @@
     name: gnome-keyring
     state: present
 
-# TODO: find a nicer way to check if a line is not in a file
-- name: Archlinux | "Check /etc/pam.d/login"
+- name: Archlinux | Check /etc/pam.d/login
   ansible.builtin.lineinfile:
     path: "/etc/pam.d/login"
     line: "auth       optional     pam_gnome_keyring.so"
     state: present
   check_mode: true
-  register: gnome_keyring_pam_step
-
-- name: Archlinux | Gnome/Keyring PAM step
-  become: true
-  ansible.builtin.lineinfile:
-    backrefs: true
-    insertafter: true
-    path: "/etc/pam.d/login"
-    regexp: "{{ item.regexp }}"
-    line: "{{ item.line }}"
-    state: present
-  loop:
-    - { regexp: "^(auth.*)$", line: "\\1\nauth       optional     pam_gnome_keyring.so" }
-    - { regexp: "^(session.*)$", line: "\\1\nsession    optional     pam_gnome_keyring.so auto_start" }
-  when: gnome_keyring_pam_step.changed
+  notify: Archlinux | Gnome/Keyring PAM step

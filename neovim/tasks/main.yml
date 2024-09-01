@@ -1,15 +1,7 @@
-- name: Git clone neovim
+- name: Git clone Neovim
   ansible.builtin.git:
     repo: "https://github.com/neovim/neovim.git"
     dest: "{{ ansible_env.HOME }}/neovim"
     version: "stable"
     depth: 1
-  register: git_result
-
-- name: Build neovim
-  become: true
-  ansible.builtin.shell: |
-    cd '{{ ansible_env.HOME }}/neovim' \
-    && make CMAKE_BUILD_TYPE=Release \
-    && sudo make install
-  when: git_result.changed
+  notify: Build Neovim

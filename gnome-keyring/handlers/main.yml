@@ -1,0 +1,12 @@
+- name: Archlinux | Gnome/Keyring PAM step
+  become: true
+  ansible.builtin.lineinfile:
+    backrefs: true
+    insertafter: true
+    path: "/etc/pam.d/login"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+    state: present
+  loop:
+    - { regexp: "^(auth.*)$", line: "\\1\nauth       optional     pam_gnome_keyring.so" }
+    - { regexp: "^(session.*)$", line: "\\1\nsession    optional     pam_gnome_keyring.so auto_start" }

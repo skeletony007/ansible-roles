@@ -1,0 +1,6 @@
+- name: Build Neovim
+  become: true
+  ansible.builtin.shell:
+    chdir: "{{ ansible_env.HOME }}/neovim"
+    cmd: make CMAKE_BUILD_TYPE=Release && make install
+  changed_when: true

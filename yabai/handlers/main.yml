@@ -1,0 +1,3 @@
+- name: Start Yabai service
+  ansible.builtin.command: yabai --install-service
+  changed_when: true
