@@ -1,0 +1,1 @@
+manifest_home: "{{ ansible_env.HOME }}/.mozilla/native-messaging-hosts"

@@ -50,5 +50,8 @@
     dest: "{{ profile_path }}"
     mode: "0644"
 
-- name: Load arkenfox tasks
-  ansible.builtin.include_tasks: "tasks/arkenfox.yml"
+- name: Load other tasks
+  ansible.builtin.include_tasks: "{{ item }}"
+  loop:
+    - "tasks/arkenfox.yml"
+    - "tasks/tridactyl.yml"
