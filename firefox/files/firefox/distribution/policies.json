@@ -7,6 +7,8 @@
     "DontCheckDefaultBrowser": true,
     "OfferToSaveLogins": false,
     "PasswordManagerEnabled": false,
+    "AutofillAddressEnabled": false,
+    "AutofillCreditCardEnabled": false,
     "PopupBlocking": {
       "Default": false
     },
