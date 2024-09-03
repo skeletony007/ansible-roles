@@ -1,0 +1,15 @@
+# [why you shouldn’t use the system Ruby]: https://www.moncefbelyamani.com/why-you-shouldn-t-use-the-system-ruby-to-install-gems-on-a-mac/
+#
+- name: Darwin | Install pre-requisites with homebrew
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - chruby
+    - ruby-install
+    - xz
+
+- name: Darwin | Install Ruby version {{ darwin_ruby_version }}
+  ansible.builtin.command:
+    cmd: ruby-install ruby {{ darwin_ruby_version }}
+    creates: "{{ ansible_env.HOME }}/.rubies/ruby-{{ darwin_ruby_version }}/bin/ruby"
