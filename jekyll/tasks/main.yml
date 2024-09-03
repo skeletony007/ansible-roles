@@ -1,0 +1,4 @@
+- name: Install Jekyll gem
+  community.general.gem:
+    name: jekyll
+    state: present
