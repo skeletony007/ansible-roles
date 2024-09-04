@@ -1,0 +1,5 @@
+- name: Archlinux | Install Chromium with pacman
+  become: true
+  community.general.pacman:
+    name: chromium
+    state: present
