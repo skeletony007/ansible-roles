@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+chruby ruby-{{ darwin_ruby_version }}

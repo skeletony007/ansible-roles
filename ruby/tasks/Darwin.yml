@@ -13,3 +13,9 @@
   ansible.builtin.command:
     cmd: ruby-install ruby {{ darwin_ruby_version }}
     creates: "{{ ansible_env.HOME }}/.rubies/ruby-{{ darwin_ruby_version }}/bin/ruby"
+
+- name: Darwin | Template Chruby Environment
+  ansible.builtin.template:
+    src: env-Darwin-ruby-chruby
+    dest: "{{ ansible_env.HOME }}/.config/personal/env-Darwin-ruby-chruby"
+    mode: "0755"
