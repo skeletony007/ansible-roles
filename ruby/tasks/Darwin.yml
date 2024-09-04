@@ -19,3 +19,4 @@
     src: env-Darwin-ruby-chruby
     dest: "{{ ansible_env.HOME }}/.config/personal/env-Darwin-ruby-chruby"
     mode: "0755"
+  when: default_ruby_version
