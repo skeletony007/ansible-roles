@@ -1,3 +1,8 @@
+- name: Load Scripting Additions
+  ansible.builtin.command: |
+    sudo yabai --load-sa; sudo sh -c 'echo "$(whoami) ALL=(root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai)) --load-sa" > /private/etc/sudoers.d/yabai'
+  changed_when: true
+
 - name: Start Yabai service
   ansible.builtin.command: yabai --install-service
   changed_when: true

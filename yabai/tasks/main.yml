@@ -2,4 +2,6 @@
   community.general.homebrew:
     name: yabai
     state: present
-  notify: Start Yabai service
+  notify:
+    - Load Scripting Additions
+    - Start Yabai service
