@@ -1,0 +1,101 @@
+{
+  "DefaultBrowserSettingEnabled": false,
+  "PasswordManagerEnabled": false,
+  "AutofillAddressEnabled": false,
+  "AutofillCreditCardEnabled": false,
+  "DefaultPopupsSetting": 2,
+  "3rdparty": {
+    "extensions": {
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
+        "adminSettings": {
+          "userSettings": {
+            "advancedUserEnabled": true,
+            "externalLists": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt\nhttps://raw.githubusercontent.com/skeletony007/uAssets/main/filters/anoyances.txt\nhttps://www.i-dont-care-about-cookies.eu/abp/",
+            "importedLists": [
+              "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
+              "https://raw.githubusercontent.com/skeletony007/uAssets/main/filters/anoyances.txt",
+              "https://www.i-dont-care-about-cookies.eu/abp/"
+            ],
+            "popupPanelSections": 31
+          },
+          "selectedFilterLists": [
+            "ublock-filters",
+            "ublock-badware",
+            "ublock-privacy",
+            "ublock-quick-fixes",
+            "ublock-abuse",
+            "ublock-unbreak",
+            "easylist",
+            "plowe-0",
+            "easyprivacy",
+            "urlhaus-1",
+            "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/LegitimateURLShortener.txt",
+            "https://raw.githubusercontent.com/skeletony007/uAssets/main/filters/anoyances.txt",
+            "https://www.i-dont-care-about-cookies.eu/abp/",
+            "adguard-mobile-app-banners",
+            "adguard-other-annoyances",
+            "adguard-popup-overlays",
+            "adguard-social",
+            "adguard-widgets",
+            "adguard-cookies",
+            "ublock-cookies-adguard",
+            "easylist-chat",
+            "easylist-newsletters",
+            "easylist-notifications",
+            "easylist-annoyances",
+            "fanboy-social",
+            "fanboy-cookiemonster",
+            "ublock-cookies-easylist",
+            "fanboy-thirdparty_social",
+            "ublock-annoyances"
+          ],
+          "dynamicFilteringString": "github.com * 3p block\ngithub.com githubassets.com * noop\ngithub.com githubusercontent.com * noop\ngoogle.com * 3p block\ngoogle.com ggpht.com * noop\ngoogle.com googleapis.com * noop\ngoogle.com googleusercontent.com * noop\ngoogle.com gstatic.com * noop\nopen.spotify.com * 3p block\nopen.spotify.com dscc.akamai.net * noop\nopen.spotify.com map.fastly.net * noop\nopen.spotify.com scdn.co * noop\nopen.spotify.com spotifycdn.com * noop\nwww.chess.com * 3p block\nwww.chess.com chesscomfiles.com * noop\nwww.chess.com cloudflare.net * noop\nwww.youtube.com * 3p block\nwww.youtube.com ggpht.com * noop\nwww.youtube.com google.com * noop\nwww.youtube.com googleusercontent.com * noop\nwww.youtube.com googlevideo.com * noop\nwww.youtube.com gstatic.com * noop\nwww.youtube.com ytimg.com * noop"
+        }
+      }
+    }
+  },
+  "BackgroundModeEnabled": false,
+  "DeviceAutoUpdateDisabled": true,
+  "DeviceAutoUpdateP2PEnabled": false,
+  "BrowserSignin": 0,
+  "ExtensionManifestV2Availability": 2,
+  "ExtensionSettings": {
+    "*": {
+      "installation_mode": "blocked",
+      "allowed_types": [
+        "extension"
+      ],
+      "toolbar_pin": "default_unpinned"
+    },
+    "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
+      "installation_mode": "force_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "eimadpbcbfnmbkopoojfekhnkhdbieeh": {
+      "installation_mode": "force_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "dbepggeogbaibhgnhhndojpepiihcmeb": {
+      "installation_mode": "force_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "lcbjdhceifofjlpecfpeimnnphbcjgnc": {
+      "installation_mode": "force_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    }
+  },
+  "DefaultCookiesSetting": 4,
+  "CookiesAllowedForUrls": [
+    "https://accounts.google.com",
+    "https://accounts.spotify.com",
+    "https://duosecurity.com",
+    "https://github.com",
+    "https://web.whatsapp.com",
+    "https://www.amazon.co.uk",
+    "https://www.chess.com",
+    "https://www.disneyplus.com",
+    "https://www.netflix.com",
+    "https://www.primevideo.com",
+    "https://www.twitch.tv"
+  ]
+}

@@ -1,4 +1,18 @@
-- name: Install Chromium with homebrew
+- name: Darwin | Install Chromium with homebrew
   homebrew_cask:
     name: chromium
     state: present
+
+- name: Darwin | Ensure Managed Preferences directory exists for user {{ ansible_env.USER }}
+  become: true
+  ansible.builtin.file:
+    path: "/Library/Managed Preferences/{{ ansible_env.USER }}"
+    state: directory
+    mode: "0755"
+
+- name: Darwin | Copy JSON policy file to /tmp/chromium-policies.json
+  ansible.builtin.copy:
+    src: managed/policies.json
+    dest: /tmp/chromium-policies.json
+    mode: "0644"
+  notify: Darwin | Convert JSON to macOS defaults using plutil and jq

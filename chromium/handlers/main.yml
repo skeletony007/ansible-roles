@@ -1,0 +1,25 @@
+# <https://www.chromium.org/administrators/mac-quick-start/>
+- name: Darwin | Convert JSON to macOS defaults using plutil and jq
+  become: true
+  ansible.builtin.shell: |
+    set -o pipefail
+
+    plutil -convert xml1 -o '/Library/Managed Preferences/{{ ansible_env.USER }}/org.chromium.Chromium.plist' '/tmp/chromium-policies.json'
+
+    defaults read "/Library/Managed Preferences/{{ ansible_env.USER }}/org.chromium.Chromium"
+
+    EXTENSIONS=$(jq -r '.["3rdparty"].extensions | to_entries[] | .key' /tmp/chromium-policies.json)
+
+    for EXTENSION in $EXTENSIONS; do
+      PAYLOAD=$(jq -c ".\"3rdparty\".extensions[\"$EXTENSION\"]" /tmp/chromium-policies.json | plutil -convert xml1 -o - -)
+      LINES=$(echo "$PAYLOAD" | wc -l)
+      echo "$(echo "$PAYLOAD" | head -n 4)
+            <key>org.chromium.Chromium.extensions.$EXTENSION</key>
+            $(echo "$PAYLOAD" | tail -n $((LINES - 3)) | head -n $((LINES - 4)))
+            $(echo "$PAYLOAD" | tail -n 2)" >"/Library/Managed Preferences/{{ ansible_env.USER }}/org.chromium.Chromium.$EXTENSION.plist"
+
+      plutil -lint "/Library/Managed Preferences/{{ ansible_env.USER }}/org.chromium.Chromium.$EXTENSION.plist" || exit 1
+
+      defaults read "/Library/Managed Preferences/{{ ansible_env.USER }}/org.chromium.Chromium.$EXTENSION"
+    done
+  changed_when: true

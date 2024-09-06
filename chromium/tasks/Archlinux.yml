@@ -3,3 +3,15 @@
   community.general.pacman:
     name: chromium
     state: present
+
+- name: Archlinux | Ensure Chromium policy directory exists on Linux
+  ansible.builtin.file:
+    path: /etc/chromium/policies/managed/
+    state: directory
+    mode: "0755"
+
+- name: Archlinux | Copy JSON policy file to Linux
+  ansible.builtin.copy:
+    src: files/chromium_policies.json
+    dest: /etc/chromium/policies/managed/policies.json
+    mode: "0644"
