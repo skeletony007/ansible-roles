@@ -124,17 +124,6 @@
       "SkipOnboarding": true,
       "MoreFromMozilla": false
     },
-    "SanitizeOnShutdown": {
-      "Cache": false,
-      "Cookies": true,
-      "Downloads": false,
-      "FormData": false,
-      "History": false,
-      "Sessions": false,
-      "SiteSettings": true,
-      "OfflineApps": false,
-      "Locked": true
-    },
     "Cookies": {
       "Allow": [
         "https://accounts.google.com",
