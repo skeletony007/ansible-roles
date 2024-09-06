@@ -77,7 +77,8 @@
         "updates_disabled": true,
         "allowed_types": [
           "extension"
-        ]
+        ],
+        "default_area": "menupanel"
       },
       "addon@darkreader.org": {
         "installation_mode": "normal_installed",
@@ -113,6 +114,7 @@
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/xbs/latest.xpi"
       }
     },
+    "ExtensionSettings_comment": "Example: To obtain an extension ID, execute `curl --request GET --url https://addons.mozilla.org/api/v5/addons/addon/ublock-origin/ | jq '.guid'` to ask the Mozilla Addons API.",
     "NoDefaultBookmarks": true,
     "UserMessaging": {
       "WhatsNew": false,
@@ -121,6 +123,17 @@
       "UrlbarInterventions": false,
       "SkipOnboarding": true,
       "MoreFromMozilla": false
+    },
+    "SanitizeOnShutdown": {
+      "Cache": false,
+      "Cookies": true,
+      "Downloads": false,
+      "FormData": false,
+      "History": false,
+      "Sessions": false,
+      "SiteSettings": true,
+      "OfflineApps": false,
+      "Locked": true
     },
     "Cookies": {
       "Allow": [
@@ -133,7 +146,8 @@
         "https://www.chess.com",
         "https://www.disneyplus.com",
         "https://www.netflix.com",
-        "https://www.primevideo.com"
+        "https://www.primevideo.com",
+        "https://www.twitch.tv"
       ]
     }
   }

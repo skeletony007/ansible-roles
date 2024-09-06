@@ -1,0 +1,10 @@
+- name: Merge /tmp/firefox-extension-settings.json and profile/extension-settings.json using jq
+  ansible.builtin.shell: |
+    cp '{{ profile_path }}/extension-settings.json' '{{ profile_path }}/extension-settings.json.backup' \
+    && jq -s '.[0] * .[1]' \
+      '/tmp/firefox-extension-settings.json' \
+      '{{ profile_path }}/extension-settings.json' \
+    > '/tmp/firefox-extension-settings-after.json' \
+    && cp '/tmp/firefox-extension-settings-after.json' \
+      '{{ profile_path }}/extension-settings.json'
+  changed_when: true

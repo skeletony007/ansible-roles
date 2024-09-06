@@ -50,6 +50,13 @@
     dest: "{{ profile_path }}"
     mode: "0644"
 
+- name: Copy extension-settings.json file to /tmp/firefox-extension-settings.json
+  ansible.builtin.copy:
+    src: profile-init/extension-settings.json
+    dest: /tmp/firefox-extension-settings.json
+    mode: "0644"
+  notify: Merge /tmp/firefox-extension-settings.json and profile/extension-settings.json using jq
+
 - name: Load other tasks
   ansible.builtin.include_tasks: "{{ item }}"
   loop:
