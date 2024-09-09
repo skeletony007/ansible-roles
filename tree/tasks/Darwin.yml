@@ -1,0 +1,4 @@
+- name: Darwin | Install Tree with homebrew
+  community.general.homebrew:
+    name: tree
+    state: present

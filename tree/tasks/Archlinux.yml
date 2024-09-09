@@ -1,0 +1,5 @@
+- name: Archlinux | Install Tree with pacman
+  become: true
+  community.general.pacman:
+    name: tree
+    state: present
