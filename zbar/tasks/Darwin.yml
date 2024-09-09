@@ -1,0 +1,4 @@
+- name: Darwin | Install ZBar Bar Code Reader with homebrew
+  community.general.homebrew:
+    name: zbar
+    state: present

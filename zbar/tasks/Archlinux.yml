@@ -1,0 +1,5 @@
+- name: Archlinux | Install ZBar Bar Code Reader with pacman
+  become: true
+  community.general.pacman:
+    name: zbar
+    state: present
