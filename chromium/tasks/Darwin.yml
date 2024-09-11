@@ -15,4 +15,4 @@
     src: managed/policies.json
     dest: /tmp/chromium-policies.json
     mode: "0644"
-  notify: Darwin | Convert JSON to macOS defaults using plutil and jq
+  notify: Darwin | Convert Linux policies to MacOS
