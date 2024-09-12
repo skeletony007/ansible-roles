@@ -1,0 +1,5 @@
+- name: Darwin | Check man pages are installed
+  ansible.builtin.stat:
+    path: /usr/bin/man
+  register: result
+  failed_when: not result.stat.exists
