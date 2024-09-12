@@ -7,7 +7,7 @@ playbook='---
 declare -a nar=()
 declare -a seen=()
 
-for role in $(for file in "$@"; do xargs <"$file"; done); do
+for role in $@; do
     if [[ " ${seen[*]} " =~ " $role " ]]; then
         continue
     fi

@@ -4,26 +4,15 @@ Opinionated Ansible roles to install all the programs.
 
 ## Features
 
-- [Ansible Roles] perform first time set up for programs
-- Minimal [Ansible playbook] generation using bespoke `install` script
-- Integration with wider Ansible ecosystem
-- Restore programs quickly on any computer
+-   [Ansible Roles] perform first time set up for programs
+-   Minimal [Ansible playbook] generation using bespoke `install` script
+-   Integration with wider Ansible ecosystem
+-   Restore programs quickly on any computer
 
 ## Install
 
 ```
-install group ...
-```
-
-where "groups" are files with lists of roles, seperated by newline or
-whitespace characters. For example:
-
-```
-gnupg
-pass pass-otp
-git git-credential-manager
-zsh oh-my-zsh
-openssh
+./install role ...
 ```
 
 Any role that does not exist will be skipped and duplicates will only be run
