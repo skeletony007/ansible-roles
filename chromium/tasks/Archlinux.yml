@@ -5,13 +5,15 @@
     state: present
 
 - name: Archlinux | Ensure Chromium policy directory exists on Linux
+  become: true
   ansible.builtin.file:
     path: /etc/chromium/policies/managed/
     state: directory
     mode: "0755"
 
 - name: Archlinux | Copy JSON policy file to Linux
+  become: true
   ansible.builtin.copy:
-    src: files/chromium_policies.json
+    src: files/managed/policies.json
     dest: /etc/chromium/policies/managed/policies.json
     mode: "0644"
