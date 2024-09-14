@@ -4,3 +4,5 @@ dependencies:
 
   - role: homebrew
     when: ansible_os_family == "Darwin"
+
+  - role: jq
