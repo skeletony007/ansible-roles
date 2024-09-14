@@ -1,0 +1,5 @@
+- name: Archlinux | Install jq with pacman
+  become: true
+  community.general.pacman:
+    name: jq
+    state: present

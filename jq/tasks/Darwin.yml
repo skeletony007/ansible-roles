@@ -1,0 +1,4 @@
+- name: Darwin | Install jq with homebrew
+  community.general.homebrew:
+    name: jq
+    state: present
