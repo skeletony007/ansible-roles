@@ -1,0 +1,4 @@
+- name: Install Tree-sitter CLI with cargo
+  community.general.cargo:
+    name: tree-sitter-cli
+    state: present
