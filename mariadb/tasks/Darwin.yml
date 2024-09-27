@@ -1,0 +1,4 @@
+- name: Darwin | Install MariaDB with homebrew
+  community.general.homebrew:
+    name: mariadb
+    state: present

@@ -1,0 +1,5 @@
+- name: Archlinux | Install MariaDB with pacman
+  become: true
+  community.general.pacman:
+    name: mariadb
+    state: present
