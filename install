@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+if [ "$(git config core.sparseCheckout)" = 'true' ]; then
+    git sparse-checkout add "$@" --skip-checks
+fi
+
 playbook='---
 - hosts: local
   roles:'
@@ -7,7 +11,7 @@ playbook='---
 declare -a nar=()
 declare -a seen=()
 
-for role in $@; do
+for role in "$@"; do
     if [[ " ${seen[*]} " =~ " $role " ]]; then
         continue
     fi
