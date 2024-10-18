@@ -1,0 +1,3 @@
+- name: Archlinux | Use pkgconf instead of pkg-config
+  ansible.builtin.fail:
+    msg: "Use pkgconf instead of pkg-config https://gitea.treehouse.systems/ariadne/pkgconf"

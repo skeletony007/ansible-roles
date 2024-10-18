@@ -1,0 +1,5 @@
+- name: Archlinux | Install libxcb with pacman
+  become: true
+  community.general.pacman:
+    name: libxcb
+    state: present
