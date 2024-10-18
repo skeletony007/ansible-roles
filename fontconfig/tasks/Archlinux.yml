@@ -1,0 +1,5 @@
+- name: Archlinux | Install Fontconfig with pacman
+  become: true
+  community.general.pacman:
+    name: fontconfig
+    state: present

@@ -1,4 +1,9 @@
-- name: Install alacritty with cargo
-  community.general.cargo:
-    name: alacritty
-    state: present
+- name: Git clone Alacritty
+  ansible.builtin.git:
+    repo: "https://github.com/alacritty/alacritty.git"
+    dest: "{{ ansible_env.HOME }}/alacritty"
+    version: "master"
+    depth: 1
+  notify:
+    - "{{ ansible_os_family }} | Build Alacritty"
+    - "{{ ansible_os_family }} | Post Build Binary"

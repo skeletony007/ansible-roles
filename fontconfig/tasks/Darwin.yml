@@ -1,0 +1,4 @@
+- name: Darwin | Install Fontconfig with homebrew
+  community.general.homebrew:
+    name: fontconfig
+    state: present

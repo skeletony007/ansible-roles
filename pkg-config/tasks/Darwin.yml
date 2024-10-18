@@ -1,0 +1,4 @@
+- name: Darwin | Install pkg-config with homebrew
+  community.general.homebrew:
+    name: pkg-config
+    state: present

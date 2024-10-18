@@ -1,0 +1,5 @@
+- name: Archlinux | Install Python with pacman
+  become: true
+  community.general.pacman:
+    name: python
+    state: present

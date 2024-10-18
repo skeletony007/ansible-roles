@@ -1,0 +1,5 @@
+- name: Archlinux | Install pkgconf with pacman
+  become: true
+  community.general.pacman:
+    name: pkgconf
+    state: present

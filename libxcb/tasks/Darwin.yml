@@ -1,0 +1,4 @@
+- name: Darwin | Install libxcb with homebrew
+  community.general.homebrew:
+    name: libxcb
+    state: present

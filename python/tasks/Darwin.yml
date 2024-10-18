@@ -1,0 +1,4 @@
+- name: Darwin | Install Python with homebrew
+  community.general.homebrew:
+    name: python
+    state: present

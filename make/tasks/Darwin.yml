@@ -1,0 +1,4 @@
+- name: Darwin | Install GNU Make with homebrew
+  community.general.homebrew:
+    name: make
+    state: present

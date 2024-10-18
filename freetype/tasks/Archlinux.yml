@@ -1,0 +1,5 @@
+- name: Archlinux | Install FreeType with pacman
+  become: true
+  community.general.pacman:
+    name: freetype2
+    state: present

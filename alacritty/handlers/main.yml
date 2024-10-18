@@ -1,0 +1,40 @@
+- name: Archlinux | Build Alacritty
+  become: true
+  ansible.builtin.shell:
+    chdir: "{{ ansible_env.HOME }}/alacritty"
+    # Force support for only X11
+    cmd: |
+      rustup override set stable
+      cargo build --release --no-default-features --features=x11
+  changed_when: true
+
+- name: Darwin | Build Alacritty
+  become: true
+  ansible.builtin.shell:
+    chdir: "{{ ansible_env.HOME }}/alacritty"
+    cmd: |
+      rustup override set stable
+      cargo build --release --target=aarch64-apple-darwin
+  changed_when: true
+
+- name: Archlinux | Post Build Binary
+  become: true
+  ansible.builtin.copy:
+    src: "{{ ansible_env.HOME }}/alacritty/target/release/alacritty"
+    dest: /usr/local/bin/alacritty
+    mode: "0755"
+
+- name: Darwin | Post Build Binary
+  become: true
+  ansible.builtin.copy:
+    src: "{{ ansible_env.HOME }}/alacritty/target/aarch64-apple-darwin/release/alacritty"
+    dest: /usr/local/bin/alacritty
+    mode: "0755"
+
+# unused
+- name: Post Build Terminfo
+  become: true
+  ansible.builtin.shell:
+    chdir: "{{ ansible_env.HOME }}/alacritty"
+    cmd: infocmp alacritty || sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+  changed_when: true

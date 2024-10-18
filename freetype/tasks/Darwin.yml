@@ -1,0 +1,4 @@
+- name: Darwin | Install FreeType with homebrew
+  community.general.homebrew:
+    name: freetype
+    state: present

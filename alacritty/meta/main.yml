@@ -1,2 +1,16 @@
 dependencies:
   - role: rust
+
+  - role: cmake
+  - role: freetype
+  - role: fontconfig
+  - role: make
+  - role: libxcb
+  - role: libxkbcommon
+  - role: python
+
+  - role: pkgconf
+    when: ansible_os_family == "Archlinux"
+
+  - role: pkg-config
+    when: ansible_os_family == "Darwin"
