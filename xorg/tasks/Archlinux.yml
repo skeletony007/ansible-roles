@@ -1,23 +1,10 @@
-- name: Archlinux | Install xorg-server with pacman
+- name: Archlinux | Install Xorg with pacman
   become: true
   community.general.pacman:
-    name: xorg-server
+    name: "{{ item }}"
     state: present
-
-- name: Archlinux | Install xorg-xinit with pacman
-  become: true
-  community.general.pacman:
-    name: xorg-xinit
-    state: present
-
-- name: Archlinux | Install xorg-xrandr with pacman
-  become: true
-  community.general.pacman:
-    name: xorg-xrandr
-    state: present
-
-- name: Archlinux | Install xclip with pacman
-  become: true
-  community.general.pacman:
-    name: xclip
-    state: present
+  loop:
+    - xorg-server
+    - xorg-xinit
+    - xorg-xrandr
+    - xclip
