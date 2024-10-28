@@ -1,0 +1,5 @@
+- name: Archlinux | Install GNOME Screenshot with pacman
+  become: true
+  community.general.pacman:
+    name: gnome-screenshot
+    state: present
