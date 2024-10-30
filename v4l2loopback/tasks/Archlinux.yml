@@ -1,0 +1,5 @@
+- name: Archlinux | Install v4l2loopback with pacman
+  become: true
+  community.general.pacman:
+    name: v4l2loopback-dkms
+    state: present

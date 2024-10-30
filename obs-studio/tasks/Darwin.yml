@@ -1,0 +1,4 @@
+- name: Darwin | Install Open Broadcaster Software with homebrew
+  community.general.homebrew:
+    name: obs
+    state: present

@@ -1,0 +1,5 @@
+- name: Archlinux | Install linux-headers with pacman
+  become: true
+  community.general.pacman:
+    name: linux-headers
+    state: present

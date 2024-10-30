@@ -1,0 +1,5 @@
+dependencies:
+  - role: pacman
+    when: ansible_os_family == "Archlinux"
+  - role: linux-headers
+    when: ansible_os_family == "Archlinux"

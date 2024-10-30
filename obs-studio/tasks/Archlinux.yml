@@ -1,0 +1,13 @@
+- name: Archlinux | Install Open Broadcaster Software with pacman
+  become: true
+  community.general.pacman:
+    name: obs-studio
+    state: present
+
+- name: Archlinux | Add virtual camera output using v4l2loopback module
+  become: true
+  community.general.modprobe:
+    name: v4l2loopback
+    state: present
+    params: "exclusive_caps=1 card_label=OBS Virtual Camera"
+    persistent: present

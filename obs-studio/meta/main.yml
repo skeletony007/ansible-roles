@@ -1,0 +1,5 @@
+dependencies:
+  - role: pacman
+    when: ansible_os_family == "Archlinux"
+  - role: v4l2loopback
+    when: ansible_os_family == "Archlinux"
