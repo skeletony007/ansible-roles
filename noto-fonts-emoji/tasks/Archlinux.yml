@@ -1,0 +1,5 @@
+- name: Archlinux | Install Google Noto emoji fonts with pacman
+  become: true
+  community.general.pacman:
+    name: noto-fonts-emoji
+    state: present
