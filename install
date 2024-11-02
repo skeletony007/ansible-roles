@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-if [ "$(git config core.sparseCheckout)" = 'true' ]; then
-    git sparse-checkout add "$@" --skip-checks
-fi
-
 playbook='---
 - hosts: local
   roles:'
