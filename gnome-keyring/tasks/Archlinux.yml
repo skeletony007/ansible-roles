@@ -11,3 +11,9 @@
     state: present
   check_mode: true
   notify: Archlinux | Gnome/Keyring PAM step
+
+- name: Archlinux | Set login as default keyring
+  ansible.builtin.copy:
+    src: default
+    dest: "{{ ansible_env.HOME }}/.local/share/keyrings/default"
+    mode: "0644"
