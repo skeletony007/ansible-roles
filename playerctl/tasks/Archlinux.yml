@@ -1,0 +1,5 @@
+- name: Archlinux | Install Playerctl with pacman
+  become: true
+  community.general.pacman:
+    name: playerctl
+    state: present
