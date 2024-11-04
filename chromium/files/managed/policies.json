@@ -62,9 +62,7 @@
   "ExtensionSettings": {
     "*": {
       "installation_mode": "blocked",
-      "allowed_types": [
-        "extension"
-      ],
+      "allowed_types": ["extension"],
       "toolbar_pin": "default_unpinned"
     },
     "cjpalhdlnbpafiamejdnhcphjbkeiagm": {
@@ -90,6 +88,7 @@
     "https://accounts.spotify.com",
     "https://duosecurity.com",
     "https://github.com",
+    "https://player.bfi.org.uk",
     "https://web.whatsapp.com",
     "https://www.amazon.co.uk",
     "https://www.chess.com",
