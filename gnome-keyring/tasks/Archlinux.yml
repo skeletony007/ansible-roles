@@ -17,3 +17,11 @@
     src: default
     dest: "{{ ansible_env.HOME }}/.local/share/keyrings/default"
     mode: "0644"
+
+- name: Archlinux | Setup gcr with the gcr-ssh-agent.socket systemd user unit
+  become_user: "{{ ansible_env.USER }}"
+  ansible.builtin.systemd_service:
+    name: gcr-ssh-agent.socket
+    scope: user
+    state: started
+    enabled: true
