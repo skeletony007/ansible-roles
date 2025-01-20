@@ -4,8 +4,8 @@
     name: "{{ item }}"
     state: present
   loop:
-    - xorg-server
-    - xorg-xinit
-    - xorg-xrdb
-    - xorg-xrandr
-    - xclip
+    - xorg-server # Xorg X server
+    - xorg-xinit # Xorg initialisation program
+    - xorg-xrdb # X server resource database utility
+    - xorg-xrandr # Primitive command line interface to RandR extension
+    - xclip # Command line interface to the X11 clipboard
