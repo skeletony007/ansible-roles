@@ -1,0 +1,5 @@
+- name: Archlinux | Install rsync with pacman
+  become: true
+  community.general.pacman:
+    name: rsync
+    state: present
