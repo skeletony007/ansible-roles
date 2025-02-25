@@ -1,0 +1,8 @@
+dependencies:
+  - role: pacman
+    when: ansible_os_family == "Archlinux"
+
+  - role: homebrew
+    when: ansible_os_family == "Darwin"
+
+  - role: python

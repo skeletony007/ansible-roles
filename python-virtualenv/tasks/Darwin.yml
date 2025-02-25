@@ -1,0 +1,4 @@
+- name: Darwin | Install Python/Virtual environment with homebrew
+  community.general.homebrew:
+    name: virtualenv
+    state: present

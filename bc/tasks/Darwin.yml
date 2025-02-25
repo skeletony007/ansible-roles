@@ -1,0 +1,4 @@
+- name: Darwin | Install GNU bc with homebrew
+  community.general.homebrew:
+    name: bc
+    state: present

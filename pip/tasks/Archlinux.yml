@@ -1,0 +1,5 @@
+- name: Archlinux | Install pip with pacman
+  become: true
+  community.general.pacman:
+    name: python-pip
+    state: present

@@ -1,0 +1,5 @@
+- name: Archlinux | Install GNU bc with pacman
+  become: true
+  community.general.pacman:
+    name: bc
+    state: present

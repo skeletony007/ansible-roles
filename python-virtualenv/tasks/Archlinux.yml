@@ -1,0 +1,5 @@
+- name: Archlinux | Install Python/Virtual environment with pacman
+  become: true
+  community.general.pacman:
+    name: python-virtualenv
+    state: present
