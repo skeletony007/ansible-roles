@@ -1,0 +1,5 @@
+- name: Archlinux | Install Exiv2 with pacman
+  become: true
+  community.general.pacman:
+    name: exiv2
+    state: present

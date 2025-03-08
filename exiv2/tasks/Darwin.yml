@@ -1,0 +1,4 @@
+- name: Darwin | Install Exiv2 with homebrew
+  community.general.homebrew:
+    name: exiv2
+    state: present
