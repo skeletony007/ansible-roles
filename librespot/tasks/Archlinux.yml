@@ -5,14 +5,13 @@
     dest: /usr/lib/systemd/user/librespot.user.service
     owner: root
     group: root
-    mode: 0644
+    mode: "0644"
 
 - name: Archlinux | Enable Librespot User Service
-  become: true
-  become_user: skeletony007
+  become_user: "{{ ansible_env.USER }}"
   ansible.builtin.systemd_service:
     name: librespot.user.service
     scope: user
     daemon_reload: true
-    state: started
-    enabled: true
+    state: stopped
+    enabled: false
