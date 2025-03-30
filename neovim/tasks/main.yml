@@ -4,4 +4,6 @@
     dest: "{{ ansible_env.HOME }}/neovim"
     version: "stable"
     depth: 1
-  notify: Build Neovim
+  notify:
+    - Build Neovim
+    - Install Neovim
