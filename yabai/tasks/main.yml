@@ -3,5 +3,7 @@
     name: yabai
     state: present
   notify:
-    - Load Scripting Additions
+    # - Uninstall Yabai service
+    - Load scripting additions
+    - Install Yabai service
     - Start Yabai service

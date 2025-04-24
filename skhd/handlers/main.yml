@@ -1,0 +1,13 @@
+- name: Uninstall skhd service
+  ansible.builtin.command: skhd --uninstall-service
+  changed_when: true
+
+- name: Install skhd service
+  ansible.builtin.command: skhd --install-service
+  register: res
+  failed_when: res.rc != 0 and 'already installed' not in res.stderr
+  changed_when: true
+
+- name: Start skhd service
+  ansible.builtin.command: skhd --start-service
+  changed_when: true

@@ -1,0 +1,7 @@
+- name: Install skhd with homebrew
+  community.general.homebrew:
+    name: koekeishiya/formulae/skhd
+    state: present
+  notify:
+    - Install skhd service
+    - Start skhd service
