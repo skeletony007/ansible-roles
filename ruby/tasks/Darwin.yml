@@ -16,7 +16,7 @@
 
 - name: Darwin | Template Chruby Environment
   ansible.builtin.template:
-    src: env-Darwin-ruby-chruby
-    dest: "{{ ansible_env.HOME }}/.config/personal/env-Darwin-ruby-chruby"
+    src: Darwin-ruby-chruby
+    dest: "{{ ansible_env.HOME }}/.config/personal.d/Darwin-ruby-chruby"
     mode: "0755"
   when: default_ruby_version
