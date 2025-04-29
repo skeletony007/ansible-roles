@@ -1,6 +1,6 @@
 - name: Git clone Neovim
   ansible.builtin.git:
-    repo: "https://github.com/neovim/neovim.git"
+    repo: "git@github.com:neovim/neovim.git"
     dest: "{{ ansible_env.HOME }}/neovim"
     version: "stable"
     depth: 1
