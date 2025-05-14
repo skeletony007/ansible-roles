@@ -1,0 +1,4 @@
+- name: Darwin | Install NASM with homebrew
+  community.general.homebrew:
+    name: nasm
+    state: present

@@ -1,0 +1,5 @@
+- name: Archlinux | Install NASM with pacman
+  become: true
+  community.general.pacman:
+    name: nasm
+    state: present
