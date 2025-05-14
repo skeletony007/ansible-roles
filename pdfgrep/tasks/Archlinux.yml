@@ -1,0 +1,5 @@
+- name: Archlinux | Install pdfgrep with pacman
+  become: true
+  community.general.pacman:
+    name: pdfgrep
+    state: present

@@ -1,0 +1,4 @@
+- name: Darwin | Install pdfgrep with homebrew
+  community.general.homebrew:
+    name: pdfgrep
+    state: present
