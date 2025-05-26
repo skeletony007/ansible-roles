@@ -1,0 +1,4 @@
+- name: Darwin | Install GitHub CLI with homebrew
+  community.general.homebrew:
+    name: gh
+    state: present
