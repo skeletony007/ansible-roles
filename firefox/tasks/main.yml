@@ -4,6 +4,13 @@
 - name: Load OS-specific tasks
   ansible.builtin.include_tasks: "tasks/{{ ansible_os_family }}.yml"
 
+- name: Ensure policy directory exists
+  become: true
+  ansible.builtin.file:
+    path: "{{ paths.policy | dirname }}"
+    state: directory
+    mode: "0755"
+
 - name: Copy policy file
   become: true
   ansible.builtin.copy:

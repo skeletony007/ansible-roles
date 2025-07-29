@@ -73,7 +73,7 @@
     "DisablePocket": true,
     "ExtensionSettings": {
       "*": {
-        "installation_mode": "blocked",
+        "installation_mode": "allowed",
         "updates_disabled": true,
         "allowed_types": ["extension"],
         "default_area": "menupanel"
@@ -86,6 +86,10 @@
         "installation_mode": "normal_installed",
         "updates_disabled": true,
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/passff/latest.xpi"
+      },
+      "redirector@einaregilsson.com": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/redirector/latest.xpi"
       },
       "skipredirect@sblask": {
         "installation_mode": "force_installed",
