@@ -1,5 +1,5 @@
 - name: Darwin | Install Chromium with homebrew
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: chromium
     state: present
 
