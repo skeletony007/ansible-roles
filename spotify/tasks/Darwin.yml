@@ -1,0 +1,4 @@
+- name: Darwin | Install spotify with homebrew
+  community.general.homebrew_cask:
+    name: spotify
+    state: present

@@ -1,0 +1,5 @@
+- name: Archlinux | Install spotify-launcher with pacman
+  become: true
+  community.general.pacman:
+    name: spotify-launcher
+    state: present
