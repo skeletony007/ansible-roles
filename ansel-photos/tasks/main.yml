@@ -1,0 +1,20 @@
+# - name: Git clone Ansel Photos
+#   ansible.builtin.git:
+#     repo: "https://github.com/aurelienpierreeng/ansel.git"
+#     dest: "{{ ansible_env.HOME }}/ansel"
+#     recursive: true
+#     update: true
+#     depth: 1
+#   notify:
+#     - Build Ansel Photos
+
+- name: Git clone Ansel Photos
+  ansible.builtin.git:
+    repo: "https://github.com/aurelienpierreeng/ansel.git"
+    dest: "{{ ansible_env.HOME }}/ansel"
+    version: 1061a7d02
+    recursive: true
+    update: false
+    depth: 1
+  notify:
+    - Build Ansel Photos

@@ -1,0 +1,25 @@
+## ```
+## sh build.sh --install --sudo --clean-all
+## ```
+##
+## `--sudo` arg needs user input.
+##
+## 1. trying without `--sudo`
+#- name: Build Ansel Photos
+#  become: true
+#  ansible.builtin.command:
+#    chdir: "{{ ansible_env.HOME }}/ansel"
+#    cmd: sh build.sh --install --clean-all
+#  changed_when: true
+
+- name: Build Ansel Photos
+  become: true
+  ansible.builtin.shell:
+    chdir: "{{ ansible_env.HOME }}/ansel"
+    cmd: |
+      mkdir build
+      cd build
+      export CXXFLAGS='-O3 -fno-strict-aliasing'
+      export CFLAGS="$CXXFLAGS"
+      cmake .. -DCMAKE_INSTALL_PREFIX=/usr -G Ninja -DCMAKE_BUILD_TYPE=Release -DBINARY_PACKAGE_BUILD=ON -DCMAKE_INSTALL_LIBDIR=lib64
+      cmake --build . --target install -- -j 8

@@ -1,0 +1,45 @@
+# <https://ansel.photos/en/doc/install/linux/>
+# <https://github.com/darktable-org/darktable/wiki/Building-darktable#arch-linux>
+# sudo pacman -S base-devel cmake intltool lensfun curl exiv2 lcms2 librsvg libxslt sqlite pugixml
+#
+# sudo pacman -Rdd \
+#   libinih \
+#   perl-clone \
+#   perl-encode-locale \
+#   perl-file-listing \
+#   perl-html-parser \
+#   perl-html-tagset \
+#   perl-http-cookiejar \
+#   perl-http-cookies \
+#   perl-http-daemon \
+#   perl-http-date \
+#   perl-http-message \
+#   perl-http-negotiate \
+#   perl-io-html \
+#   perl-libwww \
+#   perl-lwp-mediatypes \
+#   perl-net-http \
+#   perl-try-tiny \
+#   perl-uri \
+#   perl-www-robotrules \
+#   perl-xml-parser \
+#   exiv2 \
+#   intltool \
+#   lensfun \
+#   pugixml
+
+dependencies:
+  - role: pacman
+  - role: git
+
+    # less common dependencies
+    # TODO: implement this
+  - role: cmake
+    ##  - role: intltool
+    ##  - role: lensfun
+    ##  - role: exiv2
+    ##    #- role: lcms2
+    ##  - role: librsvg
+    ##  - role: libxslt
+    ##  - role: sqlite
+    ##  - role: pugixml
