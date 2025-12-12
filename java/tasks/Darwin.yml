@@ -2,3 +2,12 @@
   community.general.homebrew:
     name: openjdk@{{ version }}
     state: present
+
+# sudo ln -sfn /opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-21.jdk
+- name: Darwin | Ensure system Java wrappers find this JDK (version {{ version }})
+  become: true
+  ansible.builtin.file:
+    src: /opt/homebrew/opt/openjdk@{{ version }}/libexec/openjdk.jdk
+    dest: /Library/Java/JavaVirtualMachines/openjdk-{{ version }}.jdk
+    state: link
+    force: true
