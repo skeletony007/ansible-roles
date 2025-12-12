@@ -4,7 +4,7 @@
  */
 
 /* 0801: disable location bar using search ***/
-user_pref("keyword.enabled", true);
+user_pref("keyword.enabled", false);
 ///* 0802: disable location bar contextual suggestions ***/
 //user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", true); // [FF95+]
 ///* 0803: disable live search suggestions ***/
@@ -37,7 +37,7 @@ user_pref("reader.parse-on-load.enabled", false);
 /* disable firefox view tab */
 user_pref("browser.tabs.firefox-view", false);
 /* full screen video player ***/
-user_pref("full-screen-api.macos-native-full-screen", false);
+user_pref("full-screen-api.macos-native-full-screen", true);
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", -1);

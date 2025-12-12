@@ -3,6 +3,9 @@
   "__COMMENT__ Deploying uBlock Origin": "See https://github.com/mozilla/policy-templates/blob/master/README.md#3rdparty, https://github.com/uBlockOrigin/uBlock-issues/wiki/Deploying-uBlock-Origin#customizing-the-settings",
   "__COMMENT__ Deploying Addons": "See about:support#add-ons",
   "policies": {
+    "SearchEngines": {
+      "Default": "DuckDuckGo"
+    },
     "DisableSetDesktopBackground": true,
     "DontCheckDefaultBrowser": true,
     "OfferToSaveLogins": false,
@@ -71,6 +74,7 @@
     "DisableFeedbackCommands": true,
     "DisablePrivateBrowsing": true,
     "DisablePocket": true,
+    "ExtensionSettings_comment": "Example: To obtain an extension ID, execute `curl --request GET --url https://addons.mozilla.org/api/v5/addons/addon/ublock-origin/ | jq '.guid'` to ask the Mozilla Addons API.",
     "ExtensionSettings": {
       "*": {
         "installation_mode": "allowed",
@@ -82,26 +86,13 @@
         "installation_mode": "normal_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi"
       },
-      "passff@invicem.pro": {
-        "installation_mode": "normal_installed",
-        "updates_disabled": true,
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/passff/latest.xpi"
-      },
       "redirector@einaregilsson.com": {
         "installation_mode": "force_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/redirector/latest.xpi"
       },
-      "skipredirect@sblask": {
-        "installation_mode": "force_installed",
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/skip-redirect/latest.xpi"
-      },
       "{c607c8df-14a7-4f28-894f-29e8722976af}": {
         "installation_mode": "normal_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi"
-      },
-      "tridactyl.vim.betas.nonewtab@cmcaine.co.uk": {
-        "installation_mode": "normal_installed",
-        "install_url": "https://tridactyl.cmcaine.co.uk/betas/nonewtab/tridactyl_no_new_tab_beta-latest.xpi"
       },
       "uBlock0@raymondhill.net": {
         "installation_mode": "force_installed",
@@ -116,7 +107,6 @@
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/xbs/latest.xpi"
       }
     },
-    "ExtensionSettings_comment": "Example: To obtain an extension ID, execute `curl --request GET --url https://addons.mozilla.org/api/v5/addons/addon/ublock-origin/ | jq '.guid'` to ask the Mozilla Addons API.",
     "NoDefaultBookmarks": true,
     "UserMessaging": {
       "WhatsNew": false,

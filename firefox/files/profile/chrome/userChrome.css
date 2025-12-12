@@ -1,11 +1,37 @@
-.titlebar-buttonbox-container{
-  display: none !important;
+.titlebar-buttonbox-container {
+    display: none !important;
 }
 
-.titlebar-spacer{
-  display: none !important;
+.titlebar-spacer {
+    display: none !important;
 }
 
 /* Redirector button for dark Firefox themes */
-toolbarbutton#toggle-button--redirectoreinaregilssoncom-redirector[image*="active"] { filter: invert(1) brightness(6); }
-toolbarbutton#toggle-button--redirectoreinaregilssoncom-redirector[image*="disabled"] { filter: invert(1) brightness(2.5); }
+toolbarbutton#toggle-button--redirectoreinaregilssoncom-redirector[image*="active"] {
+    filter: invert(1) brightness(6);
+}
+toolbarbutton#toggle-button--redirectoreinaregilssoncom-redirector[image*="disabled"] {
+    filter: invert(1) brightness(2.5);
+}
+
+/*
+ * Hide buttons
+ */
+#main-window
+    :-moz-any(
+        #back-button,
+        #forward-button,
+        #stop-reload-button,
+        #PanelUI-menu-button,
+        #alltabs-button,
+        #star-button-box,
+        #tabs-newtab-button,
+        #new-tab-button,
+        #urlbar-zoom-button
+    ) {
+    display: none !important;
+}
+
+.tabbrowser-tab .tab-close-button {
+    visibility: collapse !important;
+}

@@ -2,5 +2,4 @@ paths:
   {
     profiles: "{{ ansible_env.HOME }}/.mozilla/firefox",
     policy: "/usr/lib/firefox/distribution/policies.json",
-    passff-host: "{{ ansible_env.HOME }}/.mozilla/native-messaging-hosts/passff.json",
   }

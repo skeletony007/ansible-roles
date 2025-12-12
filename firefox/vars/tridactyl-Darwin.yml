@@ -1,1 +1,0 @@
-manifest_home: "{{ ansible_env.HOME }}/Library/Application Support/Mozilla/NativeMessagingHosts"
