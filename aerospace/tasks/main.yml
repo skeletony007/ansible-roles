@@ -1,0 +1,4 @@
+- name: Install AeroSpace with homebrew
+  community.general.homebrew_cask:
+    name: nikitabobko/tap/aerospace
+    state: present
