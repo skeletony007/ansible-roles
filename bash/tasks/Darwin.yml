@@ -1,0 +1,4 @@
+- name: Darwin | Install bash with homebrew
+  community.general.homebrew:
+    name: bash
+    state: present
