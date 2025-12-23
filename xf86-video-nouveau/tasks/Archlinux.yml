@@ -1,0 +1,5 @@
+- name: Archlinux | Install xf86-video-nouveau with pacman
+  become: true
+  community.general.pacman:
+    name: xf86-video-nouveau
+    state: present

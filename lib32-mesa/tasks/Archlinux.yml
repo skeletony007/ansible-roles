@@ -1,0 +1,5 @@
+- name: Archlinux | Install lib32-mesa with pacman
+  become: true
+  community.general.pacman:
+    name: lib32-mesa
+    state: present

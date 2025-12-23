@@ -1,0 +1,5 @@
+- name: Archlinux | Install mesa with pacman
+  become: true
+  community.general.pacman:
+    name: mesa
+    state: present
