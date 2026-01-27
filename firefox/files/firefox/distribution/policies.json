@@ -120,6 +120,10 @@
       "Allow": [
         "https://accounts.google.com",
         "https://accounts.spotify.com",
+        "https://auth.wikimedia.org",
+        "https://auth.openai.com",
+        "https://duckduckgo.com",
+        "https://discord.com",
         "https://duosecurity.com",
         "https://github.com",
         "https://player.bfi.org.uk",
