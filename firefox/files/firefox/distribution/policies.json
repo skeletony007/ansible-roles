@@ -107,6 +107,13 @@
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/xbs/latest.xpi"
       }
     },
+    "GenerativeAI": {
+      "Enabled": false,
+      "Chatbot": false,
+      "LinkPreviews": false,
+      "TabGroups": false,
+      "Locked": true
+    },
     "NoDefaultBookmarks": true,
     "UserMessaging": {
       "WhatsNew": false,
