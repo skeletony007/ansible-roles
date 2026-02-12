@@ -1,0 +1,13 @@
+- name: Darwin | Ensure homebrew-zathura tap is present
+  community.general.homebrew_tap:
+    name: homebrew-zathura/zathura
+    state: present
+
+- name: Darwin | Install zathura packages
+  community.general.homebrew:
+    name:
+      - homebrew-zathura/zathura/zathura
+      - homebrew-zathura/zathura/zathura-pdf-mupdf
+    state: present
+  changed_when: true
+  notify: Darwin | install zathura plugins

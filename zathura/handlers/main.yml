@@ -1,0 +1,10 @@
+# https://github.com/homebrew-zathura/homebrew-zathura#install-plugins
+- name: Darwin | install zathura plugins
+  ansible.builtin.shell: |
+    zathura_directory="$(brew --prefix zathura)/lib/zathura"
+    zathura_plugin="$(brew --prefix zathura-pdf-mupdf)/libpdf-mupdf.dylib"
+    if [ -f "$zathura_plugin" ]; then
+        mkdir -p "$zathura_directory"
+        ln -s "$zathura_plugin" "$zathura_directory"
+    fi
+  changed_when: true
